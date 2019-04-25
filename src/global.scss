@@ -9,3 +9,51 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.navbar {
+    display: flex;
+}
+.navbar div{
+    margin: auto auto;
+    padding: 5px;
+}
+.navbar-text{
+    font-family: 'Roboto', sans-serif; 
+    font-size: 12px; 
+    margin: auto auto; 
+    color: #555;
+}
+.navbar div:hover{
+    cursor: pointer;
+}
+.navbar-title{
+    font-family: 'Roboto', sans-serif; 
+    font-size: 30px; 
+    font-weight: bolder; 
+    margin: auto auto; 
+    color: #ff7422;
+}
+
+.table-databases {
+    display: flex; 
+    height: 50px; 
+    background-color: #ff7422; 
+    border-top-right-radius: 15px; 
+    border-top-left-radius: 15px
+}
+.table-databases div{
+    margin: auto auto;
+    padding: 5px;
+}
+.table-databases div:hover{
+    cursor: pointer;
+}
+.table-databases-title {
+    font-family: 'Roboto', sans-serif; 
+    font-size: 15px; 
+    margin: auto auto; 
+    color: white; 
+    font-weight: bold;
+}
