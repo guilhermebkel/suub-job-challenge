@@ -1,9 +1,9 @@
 const Mongoose = require('mongoose')
 
 var restaurantsSchema = new Mongoose.Schema({
-    _id: {
-        type: String
-    },
+    /*_id: {
+        type: String,
+    },*/
     name: {
         type: String
     },

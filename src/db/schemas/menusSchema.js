@@ -1,9 +1,9 @@
 const Mongoose = require('mongoose')
 
 const menuSchema = new Mongoose.Schema({
-    _id: {
+    /*_id: {
         type: String
-    },
+    },*/
     imagePath: {
         type: String
     },
