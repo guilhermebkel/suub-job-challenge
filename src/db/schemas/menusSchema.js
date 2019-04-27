@@ -1,9 +1,10 @@
 const Mongoose = require('mongoose')
 
 const menuSchema = new Mongoose.Schema({
-    /*_id: {
-        type: String
-    },*/
+    _id: {
+        type: String,
+        default: Math.random().toString(36).substr(2, 9)
+    },
     imagePath: {
         type: String
     },

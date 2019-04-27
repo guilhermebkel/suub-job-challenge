@@ -11,8 +11,6 @@ import { ModalController, NavController } from '@ionic/angular';
 })
 export class Listagem {
 
-    id: any;
-    name: string;
     data: any;
     databaseSelector: string;
 
@@ -29,6 +27,8 @@ export class Listagem {
         this.restaurantData();
     }
 
+    id = "_id"
+
     restaurantData() {
         this.http.get('https://suub-challenge.herokuapp.com/restaurants').pipe(
             map(res => res.json())
@@ -43,7 +43,6 @@ export class Listagem {
             this.column1 = "name";
             this.column2 = "category";
             this.column3 = "rating";
-            this.id = "_id";
             this.databaseSelector = "restaurants";
         });
     }
@@ -62,7 +61,6 @@ export class Listagem {
             this.column1 = "name";
             this.column2 = "description";
             this.column3 = "price";
-            this.id = "_id"
             this.databaseSelector = "menus";
         });
     }
@@ -81,7 +79,6 @@ export class Listagem {
             this.column1 = "name";
             this.column2 = "rating";
             this.column3 = "comments";
-            this.id = "_id"
             this.databaseSelector = "reviews";
         });
     }
@@ -100,7 +97,6 @@ export class Listagem {
             this.column1 = "customer";
             this.column2 = "order";
             this.column3 = "price";
-            this.id = "_id"
             this.databaseSelector = "orders";
         });
     }

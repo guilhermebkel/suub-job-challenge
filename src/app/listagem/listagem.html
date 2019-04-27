@@ -35,13 +35,14 @@
       <ngx-datatable id="datatable" class="material" [rows]="data" [columnMode]="'force'" [sortType]="multi"
         [headerHeight]="45" [footerHeight]="45" [limit]="5" [rowHeight]="'auto'" reordable="true">
 
-        <ngx-datatable-column [name]="column1"></ngx-datatable-column>
-        <ngx-datatable-column [name]="column2"></ngx-datatable-column>
-        <ngx-datatable-column [name]="column3"></ngx-datatable-column>
+        <ngx-datatable-column [prop]="id"></ngx-datatable-column>
+        <ngx-datatable-column [prop]="column1"></ngx-datatable-column>
+        <ngx-datatable-column [prop]="column2"></ngx-datatable-column>
+        <ngx-datatable-column [prop]="column3"></ngx-datatable-column>
 
         <ngx-datatable-column *ngFor="let col of columns" [name]="col._id">
         </ngx-datatable-column>
-        <ngx-datatable-column name="actions" sortable="false" prop="_id">
+        <ngx-datatable-column name="Actions" sortable="false" prop="_id">
           <ng-template let-row="data" let-value="value" ngx-datatable-cell-template>
             
             <button class="delete-button" (click)="delete(value)">
