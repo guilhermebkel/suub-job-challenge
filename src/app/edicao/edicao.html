@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="navbar">
+      <div>
+        <h1 class="navbar-text" routerLink="/listagem" routerDirection="root">LISTAGEM</h1>
+      </div>
+      <div>
+        <a href="https://suub.me/"><img class="logo" src="../assets/logo/logo.png"></a>
+      </div>
+      <div>
+        <h1 class="navbar-text" style="color: #ff7422">EDIÇÃO</h1>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding" style="display:flex">
+
+    <div class="table">
+      <div class="table-crud">
+        <img class="table-crud-button" src="../assets/icon/clear.png" (click)="resetTextfield()">
+        <h1 class="table-crud-title">Create</h1>
+        <img class="table-crud-button" src="../assets/icon/done.png" (click)="create()">
+      </div>
+
+      <div class="databases">
+        <div class="databases-navbar">
+          <div (click)="restaurantSchema()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfRestaurants">Restaurants</h1>
+          </div>
+          <div (click)="menuSchema()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfMenus">Menus</h1>
+          </div>
+          <div (click)="reviewSchema()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfReviews">Reviews</h1>
+          </div>
+          <div (click)="orderSchema()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfOrders">Orders</h1>
+          </div>
+        </div>
+
+        <div style="display: flex; height: 375px; border-radius: 25px; width: auto">
+          <div class="text-field-create">
+            <textarea [(ngModel)]="textfield" type="text"></textarea>
+          </div>
+          <div class="schema">
+            <h1>{{schemaExample}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table" style="margin-left: 20px;">
+      <div class="table-crud">
+        <img class="table-crud-button" src="../assets/icon/clear.png" (click)="resetTextfield()">
+        <h1 class="table-crud-title">Edit</h1>
+        <img class="table-crud-button" src="../assets/icon/done.png" (click)="edit()">
+      </div>
+
+      <div class="databases">
+        <div class="databases-navbar">
+          <div (click)="restaurantSchema()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfRestaurants">Restaurants</h1>
+          </div>
+          <div (click)="menuSchema()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfMenus">Menus</h1>
+          </div>
+          <div (click)="reviewSchema()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfReviews">Reviews</h1>
+          </div>
+          <div (click)="orderSchema()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfOrders">Orders</h1>
+          </div>
+        </div>
+
+        <div style="display: flex; height: auto; border-radius: 25px; width: auto">
+          <div class="text-field-edit">
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

@@ -10,10 +10,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable'
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [HttpModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [NgxDatatableModule, HttpModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,

@@ -4,20 +4,23 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { HomePage } from './home.page';
+import { Listagem } from './listagem';
+
+import { NgxDatatableModule } from '@swimlane/ngx-datatable'
 
 @NgModule({
   imports: [
+    NgxDatatableModule,
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: Listagem
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [Listagem]
 })
-export class HomePageModule {}
+export class ListagemModule {}
