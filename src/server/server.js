@@ -37,7 +37,7 @@ function unknownMethodHandler(req, res) {
 mongoose.connect('mongodb+srv://guilherme:123@cluster0-zqwij.mongodb.net/test?retryWrites=true', { useNewUrlParser: true });
 
 // Hosts the server on a port
-server.listen(4000, () => {
+server.listen(process.env.PORT || 4000, () => {
     console.log('Server running at', server.name, server.url);
 })
 
