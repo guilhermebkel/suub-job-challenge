@@ -106,17 +106,17 @@ export class Edicao {
     orderSchema() {
 
         this.schemaExample = '{' + '\n' +
-            '"customer_name"' + ': ' + '"Guilherme"' + ',' + '\n' +
-            '"order_name"' + ': ' + '"Batata Frita"' + ',' + '\n' +
-            '"order_price"' + ': ' + '"10.0"' + ',' + '\n' +
+            '"customer"' + ': ' + '"Guilherme"' + ',' + '\n' +
+            '"order"' + ': ' + '"Batata Frita"' + ',' + '\n' +
+            '"price"' + ': ' + '10.0' + ',' + '\n' +
             '"menu_id"' + ': ' + '"lanches-fritos"' + ',' + '\n' +
             '"restaurant_id"' + ': ' + '"coffee-corner"' + ',' + '\n' +
             '"reviews_id"' + ': ' + '"guilherme-review"' + '\n' + '}';
 
         this.textfield = '{' + '\n' +
-            '"customer_name"' + ': ' + '" "' + ',' + '\n' +
-            '"order_name"' + ': ' + '" "' + ',' + '\n' +
-            '"order_price"' + ': ' + '" "' + ',' + '\n' +
+            '"customer"' + ': ' + '" "' + ',' + '\n' +
+            '"order"' + ': ' + '" "' + ',' + '\n' +
+            '"price"' + ': ' + '0' + ',' + '\n' +
             '"menu_id"' + ': ' + '" "' + ',' + '\n' +
             '"restaurant_id"' + ': ' + '" "' + ',' + '\n' +
             '"reviews_id"' + ': ' + '" "' + '\n' + '}';

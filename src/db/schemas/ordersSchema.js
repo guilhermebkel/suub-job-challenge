@@ -1,13 +1,13 @@
 const Mongoose = require('mongoose')
 
 var ordersSchema = new Mongoose.Schema({
-    customer_name: {
+    customer: {
         type: String
     },
-    order_name: {
+    order: {
         type: String
     },
-    order_price: {
+    price: {
         type: Number
     },
     menu_id: {

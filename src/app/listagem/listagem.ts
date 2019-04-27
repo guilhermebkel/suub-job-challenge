@@ -97,9 +97,9 @@ export class Listagem {
             this.statusOfReviews = null;
             this.statusOfOrders = "status";
 
-            this.column1 = "customer_name";
-            this.column2 = "order_name";
-            this.column3 = "order_price";
+            this.column1 = "customer";
+            this.column2 = "order";
+            this.column3 = "price";
             this.id = "_id"
             this.databaseSelector = "orders";
         });
