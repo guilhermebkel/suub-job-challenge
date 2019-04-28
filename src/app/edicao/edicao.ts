@@ -148,7 +148,7 @@ export class Edicao {
         this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorCreate}/create`, data).pipe(
             map(res => res.json())
         ).subscribe(response => {
-            this.alert(response);
+            this.alertResponse(response);
         });
     }
 
@@ -160,11 +160,11 @@ export class Edicao {
         this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorEdit}/update`, data).pipe(
             map(res => res.json())
         ).subscribe(response => {
-            this.alert(response);
+            this.alertResponse(response);
         });
     }
 
-    async alert(response){
+    async alertResponse(response){
         let alert = await this.alertCtrl.create({
             message: response,
             buttons: ['OK']

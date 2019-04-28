@@ -199,3 +199,25 @@ server.post('/orders/update', (req,res) => {
         }
     });
 })
+
+// GET Info by ID
+server.get('/restaurants/:id', (req,res) => {
+    RestaurantSchema.findOne({"_id": req.params.id}, (err, data) => {
+        res.json(data);
+    })
+})
+server.get('/menus/:id', (req,res) => {
+    MenuSchema.findOne({"_id": req.params.id}, (err, data) => {
+        res.json(data);
+    })
+})
+server.get('/reviews/:id', (req,res) => {
+    ReviewSchema.findOne({"_id": req.params.id}, (err, data) => {
+        res.json(data);
+    })
+})
+server.get('/orders/:id', (req,res) => {
+    OrderSchema.findOne({"_id": req.params.id}, (err, data) => {
+        res.json(data);
+    })
+})

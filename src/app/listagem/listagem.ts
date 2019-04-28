@@ -129,7 +129,7 @@ export class Listagem {
             else if (this.databaseSelector == "reviews") this.reviewData();
             else this.orderData();
             
-            this.alert(response);
+            this.alertResponse(response);
         });
     }
 
@@ -137,9 +137,25 @@ export class Listagem {
 
     }
 
-    async alert(response){
+    info(id){
+        this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/` + id).pipe(
+            map(res => res.json())
+        ).subscribe(response => {
+           this.alertInformation(response);
+        });
+    }
+
+    async alertResponse(response){
         let alert = await this.alertCtrl.create({
             message: response,
+            buttons: ['OK']
+        });
+        alert.present();
+    }
+
+    async alertInformation(response){
+        let alert = await this.alertCtrl.create({
+            message: JSON.stringify(response),
             buttons: ['OK']
         });
         alert.present();

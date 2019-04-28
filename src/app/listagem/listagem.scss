@@ -92,3 +92,18 @@
     background-color: black;
     -webkit-transition: all 0.2s ease-in-out;
 }
+
+.info-button{
+    background-color: #3880ff;
+    border-radius: 7px;
+    padding: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+    box-shadow: 0 6px 4px -6px #8D8D8D;
+}
+.info-button:hover{
+    background-color: black;
+    -webkit-transition: all 0.2s ease-in-out;
+}

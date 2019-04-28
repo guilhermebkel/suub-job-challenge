@@ -40,8 +40,6 @@
         <ngx-datatable-column [prop]="column3"></ngx-datatable-column>
         <ngx-datatable-column [prop]="column4"></ngx-datatable-column>
 
-        <ngx-datatable-column *ngFor="let col of columns" [name]="col._id">
-        </ngx-datatable-column>
         <ngx-datatable-column name="Actions" sortable="false" prop="_id">
           <ng-template let-row="data" let-value="value" ngx-datatable-cell-template>
             
@@ -51,6 +49,10 @@
 
             <button class="edit-button" (click)="edit(value)">
               EDIT
+            </button>
+
+            <button class="info-button" (click)="info(value)">
+              INFO
             </button>
 
           </ng-template>
