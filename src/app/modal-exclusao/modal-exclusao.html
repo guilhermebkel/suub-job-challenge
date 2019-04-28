@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar text-center>
+    <ion-title>{{modalTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        {{modelId}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <ion-button (click)="closeModal(true)" color="primary">Sim</ion-button>
+        <ion-button (click)="closeModal(false)" color="danger">Não</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

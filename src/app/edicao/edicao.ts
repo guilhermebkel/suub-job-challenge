@@ -82,17 +82,6 @@ export class Edicao {
         this.databaseSelectorCreate = "orders";
     }
 
-    orderEdit() {
-        this.schemaEdit = orderSchema;
-        this.id = "";
-
-        this.statusOfRestaurantsEdit = null;
-        this.statusOfMenusEdit = null;
-        this.statusOfReviewsEdit = null;
-        this.statusOfOrdersEdit = "status";
-
-        this.databaseSelectorEdit = "orders";
-    }
     restaurantEdit() {
         this.schemaEdit = restaurantSchema;
         this.id = "";
@@ -125,6 +114,17 @@ export class Edicao {
         this.statusOfOrdersEdit = null;
 
         this.databaseSelectorEdit = "reviews";
+    }
+    orderEdit() {
+        this.schemaEdit = orderSchema;
+        this.id = "";
+
+        this.statusOfRestaurantsEdit = null;
+        this.statusOfMenusEdit = null;
+        this.statusOfReviewsEdit = null;
+        this.statusOfOrdersEdit = "status";
+
+        this.databaseSelectorEdit = "orders";
     }
 
     resetCreateTextfield() {

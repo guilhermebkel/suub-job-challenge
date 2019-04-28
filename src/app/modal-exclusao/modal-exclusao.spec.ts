@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalExclusaoPage } from './modal-exclusao.page';
+import { ModalExclusaoPage } from './modal-exclusao';
 
 describe('ModalExclusaoPage', () => {
   let component: ModalExclusaoPage;

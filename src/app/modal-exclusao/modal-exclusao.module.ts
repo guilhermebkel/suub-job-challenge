@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ModalExclusaoPage } from './modal-exclusao.page';
+import { ModalExclusaoPage } from './modal-exclusao';
 
 const routes: Routes = [
   {

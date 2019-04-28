@@ -16,33 +16,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-// ------------------------------ Navbar Styles ---------------------------------- //
-.navbar {
-    display: flex;
-}
-.navbar div{
-    margin: auto auto;
-}
-.navbar-text{
-    font-family: 'Roboto', sans-serif; 
-    font-size: 12px; 
-    margin: auto auto; 
-    color: #555;
-    font-weight: bolder;
-    padding: 10px;
-    cursor: pointer;
-}
-.navbar-text:hover{
-    color: #ff7422;
-    -webkit-transition: all 0.2s ease-in-out;
-}
-.navbar-title{
-    font-family: 'Roboto', sans-serif; 
-    font-size: 30px; 
-    font-weight: bolder; 
-    margin: auto auto; 
-    color: #555;
-}
+// ------------------------------ CRUD Button Styles ---------------------------------- //
 .table-crud-button {
     margin: auto auto; 
     height: 40px; 

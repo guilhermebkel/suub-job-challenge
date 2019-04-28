@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-//import { NavController } from 'ionic-angular';
 import { map } from 'rxjs/operators';
 import { ModalController, NavController } from '@ionic/angular';
+import { ModalExclusaoPage } from '../modal-exclusao/modal-exclusao'
 
 @Component({
     selector: 'app-home',
@@ -18,16 +18,15 @@ export class Listagem {
     statusOfMenus: string;
     statusOfReviews: string;
     statusOfOrders: string;
-    
+
     column1: string;
     column2: string;
     column3: string;
+    column4: string;
 
-    constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController) {
+    constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController) {
         this.restaurantData();
     }
-
-    id = "_id"
 
     restaurantData() {
         this.http.get('https://suub-challenge.herokuapp.com/restaurants').pipe(
@@ -40,9 +39,10 @@ export class Listagem {
             this.statusOfReviews = null;
             this.statusOfOrders = null;
 
-            this.column1 = "name";
-            this.column2 = "category";
-            this.column3 = "rating";
+            this.column1 = "_id";
+            this.column2 = "name";
+            this.column3 = "category";
+            this.column4 = "rating";
             this.databaseSelector = "restaurants";
         });
     }
@@ -58,9 +58,10 @@ export class Listagem {
             this.statusOfReviews = null;
             this.statusOfOrders = null;
 
-            this.column1 = "name";
-            this.column2 = "description";
-            this.column3 = "price";
+            this.column1 = "_id";
+            this.column2 = "name";
+            this.column3 = "description";
+            this.column4 = "price";
             this.databaseSelector = "menus";
         });
     }
@@ -76,9 +77,10 @@ export class Listagem {
             this.statusOfReviews = "status";
             this.statusOfOrders = null;
 
-            this.column1 = "name";
-            this.column2 = "rating";
-            this.column3 = "comments";
+            this.column1 = "_id";
+            this.column2 = "name";
+            this.column3 = "rating";
+            this.column4 = "comments";
             this.databaseSelector = "reviews";
         });
     }
@@ -94,21 +96,37 @@ export class Listagem {
             this.statusOfReviews = null;
             this.statusOfOrders = "status";
 
-            this.column1 = "customer";
-            this.column2 = "order";
-            this.column3 = "price";
+            this.column1 = "_id";
+            this.column2 = "customer";
+            this.column3 = "order";
+            this.column4 = "price";
             this.databaseSelector = "orders";
         });
     }
 
-    delete(value){
+    async openModalExclusao(id) {
+        const modal = await this.modalController.create({
+            component: ModalExclusaoPage,
+            componentProps: {
+                "paramID": "Confirmação de Exclusão",
+                "paramTitle": "Deseja realmente efetuar a operação?"
+            }
+        });
+        modal.onDidDismiss().then((modalExclusaoResponse) => {
+            if(modalExclusaoResponse.data == true){
+                this.delete(id);
+            }
+        });
+        return await modal.present();
+    }
 
-        this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/delete/` + value).pipe(
+    delete(id) {
+        this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/delete/` + id).pipe(
             map(res => res.json())
         ).subscribe(response => {
-            if(this.databaseSelector == "restaurants") this.restaurantData();
-            else if(this.databaseSelector == "menus") this.menuData();
-            else if(this.databaseSelector == "reviews") this.reviewData();
+            if (this.databaseSelector == "restaurants") this.restaurantData();
+            else if (this.databaseSelector == "menus") this.menuData();
+            else if (this.databaseSelector == "reviews") this.reviewData();
             else this.orderData();
         });
     }

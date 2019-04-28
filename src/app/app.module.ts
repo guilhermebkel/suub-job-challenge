@@ -12,10 +12,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable'
 
+import { ModalExclusaoPageModule } from './modal-exclusao/modal-exclusao.module';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [NgxDatatableModule, HttpModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [ModalExclusaoPageModule, NgxDatatableModule, HttpModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,

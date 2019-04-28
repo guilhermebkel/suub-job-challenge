@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <div class="navbar">
+    <div id="navbar">
       <div>
-        <h1 class="navbar-text" routerLink="/listagem" routerDirection="root">LISTAGEM</h1>
+        <h1 id="navbar-text" routerLink="/listagem" routerDirection="root">LISTAGEM</h1>
       </div>
       <div>
-        <a href="https://suub.me/"><img class="logo" src="../assets/logo/logo.png"></a>
+        <a href="https://suub.me/"><img id="logo" src="../assets/logo/logo.png"></a>
       </div>
       <div>
-        <h1 class="navbar-text" style="color: #ff7422">EDIÇÃO</h1>
+        <h1 id="navbar-text" style="color: #ff7422">EDIÇÃO</h1>
       </div>
     </div>
   </ion-toolbar>
@@ -79,7 +79,7 @@
 
             <ion-item style="height: 13%">
               <ion-label floating>Object ID:</ion-label>
-              <ion-input [(ngModel)]="id" type="text"></ion-input>
+              <ion-input [(ngModel)]="id" type="text" placeholder="Click here and type the ID of the object you want to edit..."></ion-input>
             </ion-item>
 
             <textarea class="text-field-edit" [(ngModel)]="schemaEdit"></textarea>
