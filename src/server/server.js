@@ -44,17 +44,11 @@ server.listen(process.env.PORT || 4000, () => {
 // Helps taking the user inputs
 server.use(bodyParser.urlencoded({ extended: 'false' }));
 server.use(bodyParser.json());
-
-server.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE');
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 server.use(cors());
 server.use(logger('dev'));
 server.use(methodOverride());
 
+// READ Method
 server.get('/', function (req, res) {
     res.json({ "status": "Server is running" });
 })
@@ -80,60 +74,92 @@ server.get('/orders', (req, res) => {
     })
 })
 
+// DELETE Method
 server.get('/restaurants/delete/:id', (req, res) => {
     RestaurantSchema.findByIdAndRemove(req.params.id, (err, data) => {
         if (data) {
-            res.json("Done");
+            res.json("Deleted");
         }
     });
 })
 server.get('/menus/delete/:id', (req, res) => {
     MenuSchema.findByIdAndRemove(req.params.id, (err, data) => {
         if (data) {
-            res.json("Done");
+            res.json("Deleted");
         }
     });
 })
 server.get('/reviews/delete/:id', (req, res) => {
     ReviewSchema.findByIdAndRemove(req.params.id, (err, data) => {
         if (data) {
-            res.json("Done");
+            res.json("Deleted");
         }
     });
 })
 server.get('/orders/delete/:id', (req, res) => {
     OrderSchema.findByIdAndRemove(req.params.id, (err, data) => {
         if (data) {
-            res.json("Done");
+            res.json("Deleted");
         }
     });
 })
 
+// CREATE Method
 server.post('/restaurants/create', (req, res) => {
     RestaurantSchema.create(req.body.userInput, (err, data) => {
         if (data) {
-            res.json("Done");
+            res.json("Created");
         }
     });
 })
 server.post('/menus/create', (req, res) => {
     MenuSchema.create(req.body.userInput, (err, data) => {
         if (data) {
-            res.json("Done");
+            res.json("Created");
         }
     });
 })
 server.post('/reviews/create', (req, res) => {
     ReviewSchema.create(req.body.userInput, (err, data) => {
         if (data) {
-            res.json("Done");
+            res.json("Created");
         }
     });
 })
 server.post('/orders/create', (req, res) => {
     OrderSchema.create(req.body.userInput, (err, data) => {
         if (data) {
-            res.json("Done");
+            res.json("Created");
+        }
+    });
+})
+
+// UPDATE Method
+server.post('/restaurants/update', (req,res) => {
+    RestaurantSchema.findByIdAndUpdate(req.body.id, req.body.userInput, (err, data) => {
+        if(data) {
+            res.json("Updated");
+        }
+    });
+})
+server.post('/menus/update', (req,res) => {
+    MenuSchema.findByIdAndUpdate(req.body.id, req.body.userInput, (err, data) => {
+        if(data) {
+            res.json("Updated");
+        }
+    });
+})
+server.post('/reviews/update', (req,res) => {
+    ReviewSchema.findByIdAndUpdate(req.body.id, req.body.userInput, (err, data) => {
+        if(data) {
+            res.json("Updated");
+        }
+    });
+})
+server.post('/orders/update', (req,res) => {
+    OrderSchema.findByIdAndUpdate(req.body.id, req.body.userInput, (err, data) => {
+        if(data) {
+            res.json("Updated");
         }
     });
 })

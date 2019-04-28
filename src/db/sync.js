@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 const database = require('./db.json');
 
 // Connects to MongoDB Server
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://guilherme:123@cluster0-zqwij.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
 // Gets all database schemas
 const restaurantsSchema = require('./schemas/restaurantsSchema');

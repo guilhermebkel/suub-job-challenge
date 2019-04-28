@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-//import { NavController } from 'ionic-angular';
 import { map } from 'rxjs/operators';
 import { ModalController, NavController } from '@ionic/angular';
+import { restaurantSchemaExample, restaurantSchema } from '../../schemas/restaurantSchema'
+import { menuSchemaExample, menuSchema } from '../../schemas/menuSchema'
+import { reviewSchemaExample, reviewSchema } from '../../schemas/reviewSchema'
+import { orderSchemaExample, orderSchema } from '../../schemas/orderSchema'
 
 @Component({
     templateUrl: 'edicao.html',
@@ -10,147 +13,154 @@ import { ModalController, NavController } from '@ionic/angular';
 })
 export class Edicao {
 
-    id: any;
-    name: string;
+    databaseSelectorCreate: string;
+    databaseSelectorEdit: string;
 
-    databaseSelector: string;
     schemaExample: any;
-    textfield: any;
+    schemaCreate: any;
+    schemaEdit: any;
 
-    statusOfRestaurants: string;
-    statusOfMenus: string;
-    statusOfReviews: string;
-    statusOfOrders: string;
+    statusOfRestaurantsEdit: string;
+    statusOfMenusEdit: string;
+    statusOfReviewsEdit: string;
+    statusOfOrdersEdit: string;
+
+    statusOfRestaurantsCreate: string;
+    statusOfMenusCreate: string;
+    statusOfReviewsCreate: string;
+    statusOfOrdersCreate: string;
+
+    id: string;
 
     constructor(private http: Http, private modal: ModalController, public navCtrl: NavController) {
-        this.restaurantSchema();
+        this.restaurantCreate();
+        this.restaurantEdit();
     }
 
-    restaurantSchema() {
+    restaurantCreate() {
+        this.schemaExample = restaurantSchemaExample;
+        this.schemaCreate = restaurantSchema;
 
-        this.schemaExample = '{' + '\n' +
-            '"name"' + ': ' + '"Green Food"' + ',' + '\n' +
-            '"category"' + ': ' + '"Saudável"' + ',' + '\n' +
-            '"deliveryEstimate"' + ': ' + '"75m"' + ',' + '\n' +
-            '"rating"' + ': ' + '4.1' + ',' + '\n' +
-            '"imagePath"' + ': ' + '"assets/img/restaurants/greenfood.png"' + ',' + '\n' +
-            '"about"' + ': ' + '"Com_ida saudável é no Green Food. Compramos barato, vendemos caro. ;)"' + ',' + '\n' +
-            '"hours"' + ': ' + '"Somente em horário de almoço, das 11h às 15h"' + '\n' + '}';
+        this.statusOfRestaurantsCreate = "status";
+        this.statusOfMenusCreate = null;
+        this.statusOfReviewsCreate = null;
+        this.statusOfOrdersCreate = null;
 
-        this.textfield = '{' + '\n' +
-            '"name"' + ': ' + '" "' + ',' + '\n' +
-            '"category"' + ': ' + '" "' + ',' + '\n' +
-            '"deliveryEstimate"' + ': ' + '" "' + ',' + '\n' +
-            '"rating"' + ': ' + '0' + ',' + '\n' +
-            '"imagePath"' + ': ' + '" "' + ',' + '\n' +
-            '"about"' + ': ' + '" "' + ',' + '\n' +
-            '"hours"' + ': ' + '" "' + '\n' + '}';
+        this.databaseSelectorCreate = "restaurants";
+    }
+    menuCreate() {
+        this.schemaExample = menuSchemaExample;
+        this.schemaCreate = menuSchema;
 
-        this.statusOfRestaurants = "status";
-        this.statusOfMenus = null;
-        this.statusOfReviews = null;
-        this.statusOfOrders = null;
+        this.statusOfRestaurantsCreate = null;
+        this.statusOfMenusCreate = "status";
+        this.statusOfReviewsCreate = null;
+        this.statusOfOrdersCreate = null;
 
-        this.databaseSelector = "restaurants";
+        this.databaseSelectorCreate = "menus";
+    }
+    reviewCreate() {
+        this.schemaExample = reviewSchemaExample;
+        this.schemaCreate = reviewSchema;
 
+        this.statusOfRestaurantsCreate = null;
+        this.statusOfMenusCreate = null;
+        this.statusOfReviewsCreate = "status";
+        this.statusOfOrdersCreate = null;
+
+        this.databaseSelectorCreate = "reviews";
+    }
+    orderCreate() {
+        this.schemaExample = orderSchemaExample;
+        this.schemaCreate = orderSchema;
+
+        this.statusOfRestaurantsCreate = null;
+        this.statusOfMenusCreate = null;
+        this.statusOfReviewsCreate = null;
+        this.statusOfOrdersCreate = "status";
+
+        this.databaseSelectorCreate = "orders";
     }
 
-    menuSchema() {
+    orderEdit() {
+        this.schemaEdit = orderSchema;
+        this.id = "";
 
-        this.schemaExample = '{' + '\n' +
-            '"imagePath"' + ': ' + '"assets/img/foods/coke.png"' + ',' + '\n' +
-            '"name"' + ': ' + '"Refrigerante"' + ',' + '\n' +
-            '"description"' + ': ' + '"O refri mais gelado da c_idade."' + ',' + '\n' +
-            '"price"' + ': ' + '4.5' + ',' + '\n' +
-            '"restaurant_id"' + ': ' + '"burger-house"' + '\n' + '}';
+        this.statusOfRestaurantsEdit = null;
+        this.statusOfMenusEdit = null;
+        this.statusOfReviewsEdit = null;
+        this.statusOfOrdersEdit = "status";
 
-        this.textfield = '{' + '\n' +
-            '"imagePath"' + ': ' + '" "' + ',' + '\n' +
-            '"name"' + ': ' + '" "' + ',' + '\n' +
-            '"description"' + ': ' + '" "' + ',' + '\n' +
-            '"price"' + ': ' + '0' + ',' + '\n' +
-            '"restaurant_id"' + ': ' + '" "' + '\n' + '}';
+        this.databaseSelectorEdit = "orders";
+    }
+    restaurantEdit() {
+        this.schemaEdit = restaurantSchema;
+        this.id = "";
 
-        this.statusOfRestaurants = null;
-        this.statusOfMenus = "status";
-        this.statusOfReviews = null;
-        this.statusOfOrders = null;
+        this.statusOfRestaurantsEdit = "status";
+        this.statusOfMenusEdit = null;
+        this.statusOfReviewsEdit = null;
+        this.statusOfOrdersEdit = null;
 
-        this.databaseSelector = "menus";
+        this.databaseSelectorEdit = "restaurants";
+    }
+    menuEdit() {
+        this.schemaEdit = menuSchema;
+        this.id = "";
+
+        this.statusOfRestaurantsEdit = null;
+        this.statusOfMenusEdit = "status";
+        this.statusOfReviewsEdit = null;
+        this.statusOfOrdersEdit = null;
+
+        this.databaseSelectorEdit = "menus";
+    }
+    reviewEdit() {
+        this.schemaEdit = reviewSchema;
+        this.id = "";
+
+        this.statusOfRestaurantsEdit = null;
+        this.statusOfMenusEdit = null;
+        this.statusOfReviewsEdit = "status";
+        this.statusOfOrdersEdit = null;
+
+        this.databaseSelectorEdit = "reviews";
     }
 
-    reviewSchema() {
-
-        this.schemaExample = '{' + '\n' +
-            '"name"' + ': ' + '"Rodrigo"' + ',' + '\n' +
-            '"date"' + ': ' + '"2016-12-12T18:25:43"' + ',' + '\n' +
-            '"rating"' + ': ' + '4' + ',' + '\n' +
-            '"comments"' + ': ' + '"Muito ráp_ida a entrega, mas é caro."' + ',' + '\n' +
-            '"restaurant_id"' + ': ' + '"coffee-corner"' + '\n' + '}';
-
-        this.textfield = '{' + '\n' +
-            '"name"' + ': ' + '" "' + ',' + '\n' +
-            '"date"' + ': ' + '" "' + ',' + '\n' +
-            '"rating"' + ': ' + '0' + ',' + '\n' +
-            '"comments"' + ': ' + '" "' + ',' + '\n' +
-            '"restaurant_id"' + ': ' + '" "' + '\n' + '}';
-
-        this.statusOfRestaurants = null;
-        this.statusOfMenus = null;
-        this.statusOfReviews = "status";
-        this.statusOfOrders = null;
-
-        this.databaseSelector = "reviews";
+    resetCreateTextfield() {
+        if (this.databaseSelectorCreate == "restaurants") this.restaurantCreate();
+        else if (this.databaseSelectorCreate == "menus") this.menuCreate();
+        else if (this.databaseSelectorCreate == "reviews") this.reviewCreate();
+        else this.orderCreate();
     }
 
-    orderSchema() {
-
-        this.schemaExample = '{' + '\n' +
-            '"customer"' + ': ' + '"Guilherme"' + ',' + '\n' +
-            '"order"' + ': ' + '"Batata Frita"' + ',' + '\n' +
-            '"price"' + ': ' + '10.0' + ',' + '\n' +
-            '"menu_id"' + ': ' + '"lanches-fritos"' + ',' + '\n' +
-            '"restaurant_id"' + ': ' + '"coffee-corner"' + ',' + '\n' +
-            '"reviews_id"' + ': ' + '"guilherme-review"' + '\n' + '}';
-
-        this.textfield = '{' + '\n' +
-            '"customer"' + ': ' + '" "' + ',' + '\n' +
-            '"order"' + ': ' + '" "' + ',' + '\n' +
-            '"price"' + ': ' + '0' + ',' + '\n' +
-            '"menu_id"' + ': ' + '" "' + ',' + '\n' +
-            '"restaurant_id"' + ': ' + '" "' + ',' + '\n' +
-            '"reviews_id"' + ': ' + '" "' + '\n' + '}';
-
-        this.statusOfRestaurants = null;
-        this.statusOfMenus = null;
-        this.statusOfReviews = null;
-        this.statusOfOrders = "status";
-
-        this.databaseSelector = "orders";
-
+    resetEditTextfield() {
+        if (this.databaseSelectorEdit == "restaurants") this.restaurantEdit();
+        else if (this.databaseSelectorEdit == "menus") this.menuEdit();
+        else if (this.databaseSelectorEdit == "reviews") this.reviewEdit();
+        else this.orderEdit();
     }
 
-    resetTextfield() {
-        if (this.databaseSelector == "restaurants") this.restaurantSchema();
-        else if (this.databaseSelector == "menus") this.menuSchema();
-        else if (this.databaseSelector == "reviews") this.reviewSchema();
-        else this.orderSchema();
-    }
-
-    create(){
+    create() {
         let data = {
-            userInput: JSON.parse(this.textfield),
+            userInput: JSON.parse(this.schemaCreate),
         }
-
-        console.log(data);
-        this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/create`, data).pipe(
+        this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorCreate}/create`, data).pipe(
             map(res => res.json())
         ).subscribe(response => {
             console.log('POST Response:', response);
         });
     }
 
-    edit(){
-        
+    edit() {
+        let data = {
+            userInput: JSON.parse(this.schemaEdit),
+            id: this.id
+        }
+        this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorEdit}/update`, data).pipe(
+            map(res => res.json())
+        ).subscribe(response => {
+            console.log('POST Response:', response);
+        });
     }
 }

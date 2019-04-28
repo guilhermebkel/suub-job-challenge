@@ -19,32 +19,33 @@
 
     <div class="table">
       <div class="table-crud">
-        <img class="table-crud-button" src="../assets/icon/clear.png" (click)="resetTextfield()">
+        <img class="table-crud-button" src="../assets/icon/clear.png" (click)="resetCreateTextfield()">
         <h1 class="table-crud-title">Create</h1>
         <img class="table-crud-button" src="../assets/icon/done.png" (click)="create()">
       </div>
 
       <div class="databases">
         <div class="databases-navbar">
-          <div (click)="restaurantSchema()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfRestaurants">Restaurants</h1>
+          <div (click)="restaurantCreate()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfRestaurantsCreate">Restaurants</h1>
           </div>
-          <div (click)="menuSchema()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfMenus">Menus</h1>
+          <div (click)="menuCreate()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfMenusCreate">Menus</h1>
           </div>
-          <div (click)="reviewSchema()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfReviews">Reviews</h1>
+          <div (click)="reviewCreate()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfReviewsCreate">Reviews</h1>
           </div>
-          <div (click)="orderSchema()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfOrders">Orders</h1>
+          <div (click)="orderCreate()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfOrdersCreate">Orders</h1>
           </div>
         </div>
 
-        <div style="display: flex; height: 375px; border-radius: 25px; width: auto">
+        <div class="create-grid">
           <div class="text-field-create">
-            <textarea [(ngModel)]="textfield" type="text"></textarea>
+            <textarea [(ngModel)]="schemaCreate" type="text"></textarea>
           </div>
           <div class="schema">
+            <h2>Example:</h2>
             <h1>{{schemaExample}}</h1>
           </div>
         </div>
@@ -53,32 +54,38 @@
 
     <div class="table" style="margin-left: 20px;">
       <div class="table-crud">
-        <img class="table-crud-button" src="../assets/icon/clear.png" (click)="resetTextfield()">
+        <img class="table-crud-button" src="../assets/icon/clear.png" (click)="resetEditTextfield()">
         <h1 class="table-crud-title">Edit</h1>
         <img class="table-crud-button" src="../assets/icon/done.png" (click)="edit()">
       </div>
 
       <div class="databases">
         <div class="databases-navbar">
-          <div (click)="restaurantSchema()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfRestaurants">Restaurants</h1>
+          <div (click)="restaurantEdit()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfRestaurantsEdit">Restaurants</h1>
           </div>
-          <div (click)="menuSchema()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfMenus">Menus</h1>
+          <div (click)="menuEdit()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfMenusEdit">Menus</h1>
           </div>
-          <div (click)="reviewSchema()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfReviews">Reviews</h1>
+          <div (click)="reviewEdit()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfReviewsEdit">Reviews</h1>
           </div>
-          <div (click)="orderSchema()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfOrders">Orders</h1>
+          <div (click)="orderEdit()">
+            <h1 class="databases-navbar-title" [ngClass]="statusOfOrdersEdit">Orders</h1>
           </div>
         </div>
 
-        <div style="display: flex; height: auto; border-radius: 25px; width: auto">
-          <div class="text-field-edit">
-            <textarea></textarea>
-          </div>
+        <div style="display: inline-block; height: 375px; border-radius: 25px; width: 100%">
+
+            <ion-item style="height: 13%">
+              <ion-label floating>Object ID:</ion-label>
+              <ion-input [(ngModel)]="id" type="text"></ion-input>
+            </ion-item>
+
+            <textarea class="text-field-edit" [(ngModel)]="schemaEdit"></textarea>
+          
         </div>
+
       </div>
     </div>
 
