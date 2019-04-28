@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController, NavController, AlertController } from '@ionic/angular';
 import { restaurantSchemaExample, restaurantSchema } from '../../schemas/restaurantSchema'
 import { menuSchemaExample, menuSchema } from '../../schemas/menuSchema'
 import { reviewSchemaExample, reviewSchema } from '../../schemas/reviewSchema'
@@ -32,7 +32,7 @@ export class Edicao {
 
     id: string;
 
-    constructor(private http: Http, private modal: ModalController, public navCtrl: NavController) {
+    constructor(private http: Http, private modal: ModalController, public navCtrl: NavController, private alertCtrl: AlertController) {
         this.restaurantCreate();
         this.restaurantEdit();
     }
@@ -148,7 +148,7 @@ export class Edicao {
         this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorCreate}/create`, data).pipe(
             map(res => res.json())
         ).subscribe(response => {
-            console.log('POST Response:', response);
+            this.alert(response);
         });
     }
 
@@ -160,7 +160,15 @@ export class Edicao {
         this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorEdit}/update`, data).pipe(
             map(res => res.json())
         ).subscribe(response => {
-            console.log('POST Response:', response);
+            this.alert(response);
         });
+    }
+
+    async alert(response){
+        let alert = await this.alertCtrl.create({
+            message: response,
+            buttons: ['OK']
+        });
+        alert.present();
     }
 }

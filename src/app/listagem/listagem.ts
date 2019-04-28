@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController, NavController, AlertController } from '@ionic/angular';
 import { ModalExclusaoPage } from '../modal-exclusao/modal-exclusao'
 
 @Component({
@@ -24,7 +24,7 @@ export class Listagem {
     column3: string;
     column4: string;
 
-    constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController) {
+    constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController) {
         this.restaurantData();
     }
 
@@ -128,7 +128,20 @@ export class Listagem {
             else if (this.databaseSelector == "menus") this.menuData();
             else if (this.databaseSelector == "reviews") this.reviewData();
             else this.orderData();
+            
+            this.alert(response);
         });
     }
 
+    edit(id){
+
+    }
+
+    async alert(response){
+        let alert = await this.alertCtrl.create({
+            message: response,
+            buttons: ['OK']
+        });
+        alert.present();
+    }
 }
