@@ -142,9 +142,17 @@ export class Edicao {
     }
 
     create() {
+
+        try{
+            JSON.parse(this.schemaCreate);
+        }catch(error) {
+            return this.alertResponse(error);
+        }
+
         let data = {
             userInput: JSON.parse(this.schemaCreate),
         }
+
         this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorCreate}/create`, data).pipe(
             map(res => res.json())
         ).subscribe(response => {
@@ -153,14 +161,24 @@ export class Edicao {
     }
 
     edit() {
+
+        try{
+            JSON.parse(this.schemaEdit);
+        }catch(error) {
+            return this.alertResponse(error);
+        }
+
         let data = {
             userInput: JSON.parse(this.schemaEdit),
             id: this.id
         }
+
         this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorEdit}/update`, data).pipe(
             map(res => res.json())
         ).subscribe(response => {
-            console.log(response);
+            if(response !== 'Updated'){
+                return this.alertResponse("Invalid ID");
+            }
             this.alertResponse(response);
         });
     }
