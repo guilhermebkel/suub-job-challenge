@@ -31,12 +31,12 @@ export class Listagem {
     item1: string;
     item2: string;
     item3: string;
+    index1: string;
+    index2: string;
+    index3: string;
 
     constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController) {
         this.restaurantData();
-        this.editMode = false;
-        this.editModeStyle = "editModeDisabled";
-        this.editButtonName = "EDIT";
     }
 
     restaurantData() {
@@ -49,6 +49,10 @@ export class Listagem {
             this.statusOfMenus = null;
             this.statusOfReviews = null;
             this.statusOfOrders = null;
+
+            this.editMode = false;
+            this.editModeStyle = "editModeDisabled";
+            this.editButtonName = "EDIT";
 
             this.column1 = "_id";
             this.column2 = "name";
@@ -69,6 +73,10 @@ export class Listagem {
             this.statusOfReviews = null;
             this.statusOfOrders = null;
 
+            this.editMode = false;
+            this.editModeStyle = "editModeDisabled";
+            this.editButtonName = "EDIT";
+
             this.column1 = "_id";
             this.column2 = "name";
             this.column3 = "description";
@@ -87,6 +95,10 @@ export class Listagem {
             this.statusOfMenus = null;
             this.statusOfReviews = "status";
             this.statusOfOrders = null;
+
+            this.editMode = false;
+            this.editModeStyle = "editModeDisabled";
+            this.editButtonName = "EDIT";
 
             this.column1 = "_id";
             this.column2 = "name";
@@ -107,6 +119,10 @@ export class Listagem {
             this.statusOfReviews = null;
             this.statusOfOrders = "status";
 
+            this.editMode = false;
+            this.editModeStyle = "editModeDisabled";
+            this.editButtonName = "EDIT";
+
             this.column1 = "_id";
             this.column2 = "customer";
             this.column3 = "order";
@@ -124,7 +140,7 @@ export class Listagem {
             }
         });
         modal.onDidDismiss().then((modalExclusaoResponse) => {
-            if(modalExclusaoResponse.data == true){
+            if (modalExclusaoResponse.data == true) {
                 this.delete(id);
             }
         });
@@ -139,35 +155,52 @@ export class Listagem {
             else if (this.databaseSelector == "menus") this.menuData();
             else if (this.databaseSelector == "reviews") this.reviewData();
             else this.orderData();
-            
+
             this.alertResponse(response);
         });
     }
 
-    edit(id){
+    edit(id) {
         this.editMode = !this.editMode;
-        if(this.editMode == true){
+        if (this.editMode == true) {
             this.editModeStyle = "editModeEnabled";
             this.editButtonName = "SAVE";
         }
-        else{
+        else {
             this.editModeStyle = "editModeDisabled";
             this.editButtonName = "EDIT";
 
-            console.log(id);
-            console.log(this.item1);
+            this.index1 = (this.item1 == undefined) ? undefined : this.column2;
+            this.index2 = (this.item2 == undefined) ? undefined : this.column3;
+            this.index3 = (this.item3 == undefined) ? undefined : this.column4;
+
+            let data = {
+                userInput: JSON.parse(`{"${this.index1}": "${this.item1}", "${this.index2}": "${this.item2}", "${this.index3}": "${this.item3}"}`),
+                id: id
+            }
+
+            this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/update`, data).pipe(
+                map(res => res.json())
+            ).subscribe(response => {
+                if (this.databaseSelector == "restaurants") this.restaurantData();
+                else if (this.databaseSelector == "menus") this.menuData();
+                else if (this.databaseSelector == "reviews") this.reviewData();
+                else this.orderData();
+
+                this.alertResponse(response);
+            });
         }
     }
 
-    info(id){
+    info(id) {
         this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/` + id).pipe(
             map(res => res.json())
         ).subscribe(response => {
-           this.alertInformation(response);
+            this.alertInformation(response);
         });
     }
 
-    async alertResponse(response){
+    async alertResponse(response) {
         let alert = await this.alertCtrl.create({
             message: response,
             buttons: ['OK']
@@ -175,7 +208,7 @@ export class Listagem {
         alert.present();
     }
 
-    async alertInformation(response){
+    async alertInformation(response) {
         let alert = await this.alertCtrl.create({
             message: JSON.stringify(response),
             buttons: ['OK'],
@@ -184,4 +217,13 @@ export class Listagem {
         alert.present();
     }
 
+    getValueOne(value) {
+        this.item1 = value;
+    }
+    getValueTwo(value) {
+        this.item2 = value;
+    }
+    getValueThree(value) {
+        this.item3 = value;
+    }
 }

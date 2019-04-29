@@ -39,19 +39,19 @@
 
         <ngx-datatable-column sortable="false" [prop]="column2">
           <ng-template let-row="data" let-value="value" ngx-datatable-cell-template>
-            <ion-input [(ngModel)]="value" [(ngClass)]="editModeStyle"></ion-input>
+            <ion-input [(ngModel)]="value" [(ngClass)]="editModeStyle" (ionInput)="getValueOne(value)"></ion-input>
           </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column sortable="false" [prop]="column3">
           <ng-template let-row="data" let-value="value" ngx-datatable-cell-template>
-            <ion-input [(ngModel)]="value" [(ngClass)]="editModeStyle"></ion-input>
+            <ion-input [(ngModel)]="value" [(ngClass)]="editModeStyle" (ionInput)="getValueTwo(value)"></ion-input>
           </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column sortable="false" [prop]="column4">
           <ng-template let-row="data" let-value="value" ngx-datatable-cell-template>
-            <ion-input [(ngModel)]="value" [(ngClass)]="editModeStyle"></ion-input>
+            <ion-input [(ngModel)]="value" [(ngClass)]="editModeStyle" (ionInput)="getValueThree(value)"></ion-input>
           </ng-template>
         </ngx-datatable-column>
 
