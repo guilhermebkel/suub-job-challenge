@@ -36,28 +36,38 @@
         [headerHeight]="45" [footerHeight]="45" [limit]="5" [rowHeight]="'auto'" reordable="true">
 
         <ngx-datatable-column [prop]="column1"></ngx-datatable-column>
-        <ngx-datatable-column [prop]="column2"></ngx-datatable-column>
-        <ngx-datatable-column [prop]="column3"></ngx-datatable-column>
-        <ngx-datatable-column [prop]="column4"></ngx-datatable-column>
 
-        <ngx-datatable-column name="Actions" sortable="false" prop="_id">
+        <ngx-datatable-column sortable="false" [prop]="column2">
           <ng-template let-row="data" let-value="value" ngx-datatable-cell-template>
-            
-            <button class="delete-button" (click)="openModalExclusao(value)">
-              DELETE
-            </button>
-
-            <button class="edit-button" (click)="edit(value)">
-              EDIT
-            </button>
-
-            <button class="info-button" (click)="info(value)">
-              INFO
-            </button>
-
+            <ion-input [(ngModel)]="value" [(ngClass)]="editModeStyle"></ion-input>
           </ng-template>
         </ngx-datatable-column>
 
+        <ngx-datatable-column sortable="false" [prop]="column3">
+          <ng-template let-row="data" let-value="value" ngx-datatable-cell-template>
+            <ion-input [(ngModel)]="value" [(ngClass)]="editModeStyle"></ion-input>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column sortable="false" [prop]="column4">
+          <ng-template let-row="data" let-value="value" ngx-datatable-cell-template>
+            <ion-input [(ngModel)]="value" [(ngClass)]="editModeStyle"></ion-input>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Actions" sortable="false" [prop]="column1">
+          <ng-template let-row="data" let-value="value" ngx-datatable-cell-template>
+            <button class="delete-button" (click)="openModalExclusao(value)">
+              DELETE
+            </button>
+            <button class="edit-button" (click)="edit(value)">
+              {{editButtonName}}
+            </button>
+            <button class="info-button" (click)="info(value)">
+              INFO
+            </button>
+          </ng-template>
+        </ngx-datatable-column>
       </ngx-datatable>
 
     </div>

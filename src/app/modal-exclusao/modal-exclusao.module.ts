@@ -9,7 +9,7 @@ import { ModalExclusaoPage } from './modal-exclusao';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'modal',
     component: ModalExclusaoPage
   }
 ];

@@ -40,3 +40,10 @@
     color: #ff7422;
     -webkit-transition: all 0.2s ease-in-out;
 }
+
+.alertInformation {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}

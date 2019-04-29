@@ -23,7 +23,6 @@
         <h1 class="table-crud-title">Create</h1>
         <img class="table-crud-button" src="../assets/icon/done.png" (click)="create()">
       </div>
-
       <div class="databases">
         <div class="databases-navbar">
           <div (click)="restaurantCreate()">
@@ -39,7 +38,6 @@
             <h1 class="databases-navbar-title" [ngClass]="statusOfOrdersCreate">Orders</h1>
           </div>
         </div>
-
         <div class="create-grid">
           <div class="text-field-create">
             <textarea [(ngModel)]="schemaCreate" type="text"></textarea>
@@ -58,7 +56,6 @@
         <h1 class="table-crud-title">Edit</h1>
         <img class="table-crud-button" src="../assets/icon/done.png" (click)="edit()">
       </div>
-
       <div class="databases">
         <div class="databases-navbar">
           <div (click)="restaurantEdit()">
@@ -74,21 +71,16 @@
             <h1 class="databases-navbar-title" [ngClass]="statusOfOrdersEdit">Orders</h1>
           </div>
         </div>
-
         <div style="display: inline-block; height: 375px; border-radius: 25px; width: 100%">
-
             <ion-item style="height: 13%">
-              <ion-label floating>Object ID:</ion-label>
+              <ion-label floating >Object ID:</ion-label>
               <ion-input [(ngModel)]="id" type="text" placeholder="Click here and type the ID of the object you want to edit..."></ion-input>
             </ion-item>
-
             <textarea class="text-field-edit" [(ngModel)]="schemaEdit"></textarea>
-          
         </div>
-
       </div>
     </div>
-
+    
   </div>
 
 </ion-content>

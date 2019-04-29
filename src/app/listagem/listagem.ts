@@ -24,8 +24,19 @@ export class Listagem {
     column3: string;
     column4: string;
 
+    editMode: boolean;
+    editModeStyle: string;
+    editButtonName: string;
+
+    item1: string;
+    item2: string;
+    item3: string;
+
     constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController) {
         this.restaurantData();
+        this.editMode = false;
+        this.editModeStyle = "editModeDisabled";
+        this.editButtonName = "EDIT";
     }
 
     restaurantData() {
@@ -134,7 +145,18 @@ export class Listagem {
     }
 
     edit(id){
+        this.editMode = !this.editMode;
+        if(this.editMode == true){
+            this.editModeStyle = "editModeEnabled";
+            this.editButtonName = "SAVE";
+        }
+        else{
+            this.editModeStyle = "editModeDisabled";
+            this.editButtonName = "EDIT";
 
+            console.log(id);
+            console.log(this.item1);
+        }
     }
 
     info(id){
@@ -156,8 +178,10 @@ export class Listagem {
     async alertInformation(response){
         let alert = await this.alertCtrl.create({
             message: JSON.stringify(response),
-            buttons: ['OK']
+            buttons: ['OK'],
+            cssClass: "alertInformation"
         });
         alert.present();
     }
+
 }

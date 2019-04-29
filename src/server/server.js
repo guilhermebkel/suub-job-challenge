@@ -80,18 +80,12 @@ server.get('/restaurants/delete/:id', (req, res) => {
         if (data) {
             res.json("Deleted");
         }
-        else{
-            res.json(err);
-        }
     });
 })
 server.get('/menus/delete/:id', (req, res) => {
     MenuSchema.findByIdAndRemove(req.params.id, (err, data) => {
         if (data) {
             res.json("Deleted");
-        }
-        else{
-            res.json(err);
         }
     });
 })
@@ -100,18 +94,12 @@ server.get('/reviews/delete/:id', (req, res) => {
         if (data) {
             res.json("Deleted");
         }
-        else{
-            res.json(err);
-        }
     });
 })
 server.get('/orders/delete/:id', (req, res) => {
     OrderSchema.findByIdAndRemove(req.params.id, (err, data) => {
         if (data) {
             res.json("Deleted");
-        }
-        else{
-            res.json(err);
         }
     });
 })
@@ -122,18 +110,12 @@ server.post('/restaurants/create', (req, res) => {
         if (data) {
             res.json("Created");
         }
-        else{
-            res.json(err);
-        }
     });
 })
 server.post('/menus/create', (req, res) => {
     MenuSchema.create(req.body.userInput, (err, data) => {
         if (data) {
             res.json("Created");
-        }
-        else{
-            res.json(err);
         }
     });
 })
@@ -142,18 +124,12 @@ server.post('/reviews/create', (req, res) => {
         if (data) {
             res.json("Created");
         }
-        else{
-            res.json(err);
-        }
     });
 })
 server.post('/orders/create', (req, res) => {
     OrderSchema.create(req.body.userInput, (err, data) => {
         if (data) {
             res.json("Created");
-        }
-        else{
-            res.json(err);
         }
     });
 })
@@ -164,18 +140,12 @@ server.post('/restaurants/update', (req,res) => {
         if(data) {
             res.json("Updated");
         }
-        else{
-            res.json(err);
-        }
     });
 })
 server.post('/menus/update', (req,res) => {
     MenuSchema.findByIdAndUpdate(req.body.id, req.body.userInput, (err, data) => {
         if(data) {
             res.json("Updated");
-        }
-        else{
-            res.json(err);
         }
     });
 })
@@ -184,18 +154,12 @@ server.post('/reviews/update', (req,res) => {
         if(data) {
             res.json("Updated");
         }
-        else{
-            res.json(err);
-        }
     });
 })
 server.post('/orders/update', (req,res) => {
     OrderSchema.findByIdAndUpdate(req.body.id, req.body.userInput, (err, data) => {
         if(data) {
             res.json("Updated");
-        }
-        else{
-            res.json(err);
         }
     });
 })
