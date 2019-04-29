@@ -2,19 +2,24 @@ const Mongoose = require('mongoose')
 
 var reviewsSchema = new Mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        default: " "
     },
     date: {
-        type: String
+        type: String,
+        default: " "
     },
     rating: {
-        type: Number
+        type: Number,
+        default: 0
     },
     comments: {
-        type: String
+        type: String,
+        default: " "
     },
     restaurant_id: {
-        type: String
+        type: String,
+        default: " "
     }
 });
 

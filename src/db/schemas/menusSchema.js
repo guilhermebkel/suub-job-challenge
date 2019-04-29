@@ -7,19 +7,24 @@ const menuSchema = new Mongoose.Schema({
         default: shortid.generate
     },
     imagePath: {
-        type: String
+        type: String,
+        default: " "
     },
     name: {
-        type: String
+        type: String,
+        default: " "
     },
     description: {
-        type: String
+        type: String,
+        default: " "
     },
     price: {
-        type: Number
+        type: Number,
+        default: 0
     },
     restaurant_id: {
-        type: String
+        type: String,
+        default: " "
     }
 });
 

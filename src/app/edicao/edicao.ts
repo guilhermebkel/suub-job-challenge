@@ -160,6 +160,7 @@ export class Edicao {
         this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorEdit}/update`, data).pipe(
             map(res => res.json())
         ).subscribe(response => {
+            console.log(response);
             this.alertResponse(response);
         });
     }

@@ -2,23 +2,28 @@ const Mongoose = require('mongoose')
 
 var ordersSchema = new Mongoose.Schema({
     customer: {
-        type: String
+        type: String,
+        default: " "
     },
     order: {
-        type: String
+        type: String,
+        default: " "
     },
     price: {
-        type: Number
+        type: Number,
+        default: 0
     },
     menu_id: {
-        type: String
+        type: String,
+        default: " "
     },
     restaurant_id: {
-        type: String
+        type: String,
+        default: " "
     },
     reviews_id: {
         type: String,
-        default: ""
+        default: " "
     }
 })
 

@@ -65,32 +65,34 @@
 
 // ------------------------- Delete and Edit Buttons Style ------------------------- //
 .delete-button{
-    background-color: rgb(235, 57, 57);
+    background-color: #eb3939;
     border-radius: 7px;
     padding: 5px;
     color: white;
     font-size: 12px;
     font-weight: bold;
-    box-shadow: 0 6px 4px -6px #8D8D8D;
+    box-shadow: 0 6px 4px -6px #eb3939;
 }
 .delete-button:hover{
     background-color: black;
     -webkit-transition: all 0.2s ease-in-out;
+    box-shadow: 0 6px 4px -6px black;
 }
 
 .edit-button{
-    background-color: rgb(70, 189, 104);
+    background-color: #46bd68;
     border-radius: 7px;
     padding: 5px;
     color: white;
     font-size: 12px;
     font-weight: bold;
     margin-left: 5px;
-    box-shadow: 0 6px 4px -6px #8D8D8D;
+    box-shadow: 0 6px 4px -6px #46bd68;
 }
 .edit-button:hover{
     background-color: black;
     -webkit-transition: all 0.2s ease-in-out;
+    box-shadow: 0 6px 4px -6px black;
 }
 
 .info-button{
@@ -101,9 +103,10 @@
     font-size: 12px;
     font-weight: bold;
     margin-left: 5px;
-    box-shadow: 0 6px 4px -6px #8D8D8D;
+    box-shadow: 0 6px 4px -6px #3880ff;
 }
 .info-button:hover{
     background-color: black;
     -webkit-transition: all 0.2s ease-in-out;
+    box-shadow: 0 6px 4px -6px black;
 }

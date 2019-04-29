@@ -7,25 +7,32 @@ var restaurantsSchema = new Mongoose.Schema({
         default: shortid.generate
     },
     name: {
-        type: String
+        type: String,
+        default: " "
     },
     category: {
-        type: String
+        type: String,
+        default: " "
     },
     deliveryEstimate: {
-        type: String
+        type: String,
+        default: " "
     },
     rating: {
-        type: Number
+        type: Number,
+        default: 0
     },
     imagePath: {
-        type: String
+        type: String,
+        default: " "
     },
     about: {
-        type: String
+        type: String,
+        default: " "
     },
     hours: {
-        type: String
+        type: String,
+        default: " "
     },
 });
 
