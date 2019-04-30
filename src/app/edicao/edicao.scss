@@ -16,18 +16,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-// ------------------------------ CRUD Button Styles ---------------------------------- //
-.table-crud-button {
-    margin: auto auto; 
-    height: 40px; 
-    width: 40px; 
-    padding: 2px; 
-    cursor: pointer;
-    opacity: 0.5;
-}
-.table-crud-button:hover {
-    opacity: 1;
-    -webkit-transition: all 0.2s ease-in-out;
+// ------------------------------ Body grid controller ---------------------------------- //
+.body {
+    display:flex;
 }
 
 // ------------------------------ Database Selector Styles ---------------------------------- //
@@ -57,31 +48,32 @@
     color: #ff7422;
     -webkit-transition: all 0.2s ease-in-out;
 }
-.status{
+.databaseSelected{
     color: #ff7422;
     cursor: inherit;
 }
 
-// ------------------------------ Create and Edit Styles ---------------------------------- //
-.table{
+// ------------------------------ Box Container Styles ---------------------------------- //
+.box{
     width: 50%; 
     height: 450px; 
     border-radius: 15px;
     -webkit-box-shadow: 0 10px 20px #c7c7c7;
 	-moz-box-shadow: 0 10px 20px #c7c7c7;
     box-shadow: 0 10px 20px #c7c7c7;
+    margin: 10px;
 }
-.table-crud {
+.box-navbar {
     display: flex; 
     height: 50px; 
     background-color: #ff7422; 
     border-top-right-radius: 25px; 
     border-top-left-radius: 25px
 }
-.table-crud div{
+.box-navbar div{
     margin: auto auto;
 }
-.table-crud-title {
+.box-navbar-title {
     font-family: 'Roboto', sans-serif; 
     font-size: 15px; 
     margin: auto auto; 
@@ -89,14 +81,80 @@
     font-weight: bold;
     padding: 10px;
 }
+.box-navbar-button {
+    margin: auto auto; 
+    height: 40px; 
+    width: 40px; 
+    padding: 2px; 
+    cursor: pointer;
+    opacity: 0.5;
+}
+.box-navbar-button:hover{
+    opacity: 1;
+    -webkit-transition: all 0.2s ease-in-out;
+}
 
-.create-grid{
+// ------------------------------ Create Box Styles ---------------------------------- //
+.create-box{
     display: flex; 
     height: 375px; 
     border-radius: 25px; 
     width: auto;
 }
-.text-field-edit{
+.create-box-userInput{
+    display: flex; 
+    width: 50%; 
+    height: 100%; 
+}
+.create-box-userInput textarea{
+    margin: auto auto; 
+    height: 100%; 
+    width: 100%; 
+    resize: none; 
+    -moz-appearance: none; 
+    outline: 0px none transparent; 
+    border-width: 0px; 
+    padding-top: 10px;
+    padding-left: 15px; 
+    line-height: 25px
+}
+.create-box-schema{
+    display: inline-block; 
+    width: 50%; 
+    height: 100%; 
+    background-color: rgb(235, 235, 235); 
+    overflow-y: scroll;
+}
+.create-box-schema h1{
+    width: 100%; 
+    margin: auto auto; 
+    font-family: monospace; 
+    font-size: 14px; 
+    color: rgb(88, 88, 88); 
+    white-space: pre-line; 
+    line-height: 25px; 
+    user-select: all; 
+    padding: 15px;
+}
+.create-box-schema h2{
+    color: black;
+    padding-left: 15px;
+    font-size: 18px;
+}
+
+// ------------------------------ Edit Box Styles ---------------------------------- //
+.edit-box{
+    display: inline-block;
+    height: 375px; 
+    border-radius: 25px; 
+    width: 100%;
+}
+
+.edit-box-objectID {
+    height: 13%;
+}
+
+.edit-box-userInput {
     margin: auto auto; 
     height: 87%; 
     width: 100%; 
@@ -108,44 +166,68 @@
     padding-left: 15px; 
     line-height: 25px
 }
-.text-field-create{
-    display: flex; 
-    width: 50%; 
-    height: 100%; 
-}
-.text-field-create textarea{
-    margin: auto auto; 
-    height: 100%; 
-    width: 100%; 
-    resize: none; 
-    -moz-appearance: none; 
-    outline: 0px none transparent; 
-    border-width: 0px; 
-    padding-top: 10px;
-    padding-left: 15px; 
-    line-height: 25px
-}
 
-.schema{
-    display: inline-block; 
-    width: 50%; 
-    height: 100%; 
-    background-color: rgb(235, 235, 235); 
-    overflow-y: scroll;
-}
-.schema h1{
-    width: 100%; 
-    margin: auto auto; 
-    font-family: monospace; 
-    font-size: 14px; 
-    color: rgb(88, 88, 88); 
-    white-space: pre-line; 
-    line-height: 25px; 
-    user-select: all; 
-    padding: 15px;
-}
-.schema h2{
-    color: black;
-    padding-left: 15px;
-    font-size: 18px;
+// ------------------------------ Responsive Styles ---------------------------------- //
+@media (max-width: 576px) {
+    .body{
+        display: inline-block;
+    }
+    .box{
+        width: 100%; 
+        height: 450px; 
+        border-radius: 15px;
+        -webkit-box-shadow: 0 10px 20px #c7c7c7;
+        -moz-box-shadow: 0 10px 20px #c7c7c7;
+        box-shadow: 0 10px 20px #c7c7c7;
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+    .create-box-schema h1{
+        width: 100%; 
+        margin: auto auto; 
+        font-family: monospace; 
+        font-size: 10px; 
+        color: rgb(88, 88, 88); 
+        white-space: pre-line; 
+        line-height: 20px; 
+        user-select: all; 
+        padding: 15px;
+    }
+    .create-box-schema h2{
+        color: black;
+        padding-left: 15px;
+        font-size: 14px;
+    }
+    .create-box-userInput textarea{
+        margin: auto auto; 
+        height: 100%; 
+        width: 100%; 
+        resize: none; 
+        -moz-appearance: none; 
+        outline: 0px none transparent; 
+        border-width: 0px; 
+        padding-top: 10px;
+        padding-left: 15px; 
+        line-height: 20px;
+        font-size: 12px;
+    }
+    .edit-box-userInput{
+        margin: auto auto; 
+        height: 87%; 
+        width: 100%; 
+        resize: none; 
+        -moz-appearance: none; 
+        outline: 0px none transparent; 
+        border-width: 0px; 
+        padding-top: 10px;
+        padding-left: 15px; 
+        line-height: 25px;
+        font-size: 12px;
+    }
+    .edit-box-objectID ion-label{
+        font-size: 14px;
+    }
+    .edit-box-objectID ion-input{
+        font-size: 10px;
+    }
 }

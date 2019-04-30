@@ -31,9 +31,6 @@ export class Listagem {
     item1: string;
     item2: string;
     item3: string;
-    index1: string;
-    index2: string;
-    index3: string;
 
     constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController) {
         this.restaurantData();
@@ -45,7 +42,7 @@ export class Listagem {
         ).subscribe(response => {
             this.data = response;
 
-            this.statusOfRestaurants = "status";
+            this.statusOfRestaurants = "databaseSelected";
             this.statusOfMenus = null;
             this.statusOfReviews = null;
             this.statusOfOrders = null;
@@ -53,6 +50,7 @@ export class Listagem {
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
             this.editButtonName = "EDIT";
+            this.id = "";
 
             this.column1 = "_id";
             this.column2 = "name";
@@ -69,13 +67,14 @@ export class Listagem {
             this.data = response;
 
             this.statusOfRestaurants = null;
-            this.statusOfMenus = "status";
+            this.statusOfMenus = "databaseSelected";
             this.statusOfReviews = null;
             this.statusOfOrders = null;
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
             this.editButtonName = "EDIT";
+            this.id = "";
 
             this.column1 = "_id";
             this.column2 = "name";
@@ -93,12 +92,13 @@ export class Listagem {
 
             this.statusOfRestaurants = null;
             this.statusOfMenus = null;
-            this.statusOfReviews = "status";
+            this.statusOfReviews = "databaseSelected";
             this.statusOfOrders = null;
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
             this.editButtonName = "EDIT";
+            this.id = "";
 
             this.column1 = "_id";
             this.column2 = "name";
@@ -117,11 +117,12 @@ export class Listagem {
             this.statusOfRestaurants = null;
             this.statusOfMenus = null;
             this.statusOfReviews = null;
-            this.statusOfOrders = "status";
+            this.statusOfOrders = "databaseSelected";
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
             this.editButtonName = "EDIT";
+            this.id = "";
 
             this.column1 = "_id";
             this.column2 = "customer";
@@ -167,12 +168,8 @@ export class Listagem {
             this.editButtonName = "EDIT";
             this.id = "";
 
-            this.index1 = (this.item1 == undefined) ? undefined : this.column2;
-            this.index2 = (this.item2 == undefined) ? undefined : this.column3;
-            this.index3 = (this.item3 == undefined) ? undefined : this.column4;
-
             let data = {
-                userInput: JSON.parse(`{"${this.index1}": "${this.item1}", "${this.index2}": "${this.item2}", "${this.index3}": "${this.item3}"}`),
+                userInput: JSON.parse(`{"${this.column2}": "${this.item1}", "${this.column3}": "${this.item2}", "${this.column4}": "${this.item3}"}`),
                 id: id
             }
 

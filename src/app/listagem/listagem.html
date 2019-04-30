@@ -16,25 +16,25 @@
 
 <ion-content>
   <div class="ion-padding">
-    <div class="table">
-      <div class="table-databases">
+    <div class="box">
+      <div class="box-navbar">
         <div (click)="restaurantData()">
-          <h1 class="table-databases-title" [ngClass]="statusOfRestaurants">Restaurants</h1>
+          <h1 class="box-navbar-title" [ngClass]="statusOfRestaurants">Restaurants</h1>
         </div>
         <div (click)="menuData()">
-          <h1 class="table-databases-title" [ngClass]="statusOfMenus">Menus</h1>
+          <h1 class="box-navbar-title" [ngClass]="statusOfMenus">Menus</h1>
         </div>
         <div (click)="reviewData()">
-          <h1 class="table-databases-title" [ngClass]="statusOfReviews">Reviews</h1>
+          <h1 class="box-navbar-title" [ngClass]="statusOfReviews">Reviews</h1>
         </div>
         <div (click)="orderData()">
-          <h1 class="table-databases-title" [ngClass]="statusOfOrders">Orders</h1>
+          <h1 class="box-navbar-title" [ngClass]="statusOfOrders">Orders</h1>
         </div>
       </div>
 
       <ngx-datatable id="datatable" class="material" [rows]="data" [columnMode]="'force'" [sortType]="multi"
         [headerHeight]="45" [footerHeight]="45" [limit]="5" [rowHeight]="'auto'" reordable="true">
-
+        
         <ngx-datatable-column [prop]="column1"></ngx-datatable-column>
 
         <ngx-datatable-column sortable="false" [prop]="column2">
@@ -68,8 +68,8 @@
             </button>
           </ng-template>
         </ngx-datatable-column>
-      </ngx-datatable>
 
+      </ngx-datatable>
     </div>
   </div>
 

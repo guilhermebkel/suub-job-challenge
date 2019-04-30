@@ -15,13 +15,12 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding" style="display:flex">
-
-    <div class="table">
-      <div class="table-crud">
-        <img class="table-crud-button" src="../assets/icon/clear.png" (click)="resetCreateTextfield()">
-        <h1 class="table-crud-title">Create</h1>
-        <img class="table-crud-button" src="../assets/icon/done.png" (click)="create()">
+  <div class="ion-padding body">
+    <div class="box">
+      <div class="box-navbar">
+        <img class="box-navbar-button" src="../assets/icon/clear.png" (click)="resetCreateTextfield()">
+        <h1 class="box-navbar-title">Create</h1>
+        <img class="box-navbar-button" src="../assets/icon/done.png" (click)="create()">
       </div>
       <div class="databases">
         <div class="databases-navbar">
@@ -38,11 +37,11 @@
             <h1 class="databases-navbar-title" [ngClass]="statusOfOrdersCreate">Orders</h1>
           </div>
         </div>
-        <div class="create-grid">
-          <div class="text-field-create">
+        <div class="create-box">
+          <div class="create-box-userInput">
             <textarea [(ngModel)]="schemaCreate" type="text"></textarea>
           </div>
-          <div class="schema">
+          <div class="create-box-schema">
             <h2>Example:</h2>
             <h1>{{schemaExample}}</h1>
           </div>
@@ -50,11 +49,11 @@
       </div>
     </div>
 
-    <div class="table" style="margin-left: 20px;">
-      <div class="table-crud">
-        <img class="table-crud-button" src="../assets/icon/clear.png" (click)="resetEditTextfield()">
-        <h1 class="table-crud-title">Edit</h1>
-        <img class="table-crud-button" src="../assets/icon/done.png" (click)="edit()">
+    <div class="box">
+      <div class="box-navbar">
+        <img class="box-navbar-button" src="../assets/icon/clear.png" (click)="resetEditTextfield()">
+        <h1 class="box-navbar-title">Edit</h1>
+        <img class="box-navbar-button" src="../assets/icon/done.png" (click)="edit()">
       </div>
       <div class="databases">
         <div class="databases-navbar">
@@ -71,16 +70,14 @@
             <h1 class="databases-navbar-title" [ngClass]="statusOfOrdersEdit">Orders</h1>
           </div>
         </div>
-        <div style="display: inline-block; height: 375px; border-radius: 25px; width: 100%">
-            <ion-item style="height: 13%">
-              <ion-label floating >Object ID:</ion-label>
-              <ion-input [(ngModel)]="id" type="text" placeholder="Click here and type the ID of the object you want to edit..."></ion-input>
-            </ion-item>
-            <textarea class="text-field-edit" [(ngModel)]="schemaEdit"></textarea>
+        <div class="edit-box">
+          <ion-item class="edit-box-objectID">
+            <ion-label floating>Object ID:</ion-label>
+            <ion-input [(ngModel)]="id" type="text" placeholder="Click here and type the ID of the object you want to edit..."></ion-input>
+          </ion-item>
+          <textarea class="edit-box-userInput" [(ngModel)]="schemaEdit"></textarea>
         </div>
       </div>
     </div>
-    
   </div>
-
 </ion-content>

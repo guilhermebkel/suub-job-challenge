@@ -16,8 +16,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-// ------------------------- Database Selector Style ------------------------- //
-.table{
+// ------------------------- Box Style ------------------------- //
+.box{
     width: 100%; 
     height: 100%; 
     border-radius: 15px;
@@ -25,17 +25,17 @@
 	-moz-box-shadow: 0 10px 20px #c7c7c7;
 	box-shadow: 0 10px 20px #c7c7c7;
 }
-.table-databases {
+.box-navbar {
     display: flex; 
     height: 50px; 
     background-color: #ff7422; 
     border-top-right-radius: 15px; 
     border-top-left-radius: 15px
 }
-.table-databases div{
+.box-navbar div{
     margin: auto auto;
 }
-.table-databases-title {
+.box-navbar-title {
     font-family: 'Roboto', sans-serif; 
     font-size: 15px; 
     margin: auto auto; 
@@ -44,11 +44,11 @@
     padding: 10px;
     cursor: pointer;
 }
-.table-databases-title:hover{
+.box-navbar-title:hover{
     color: white;
     -webkit-transition: all 0.2s ease-in-out;
 }
-.status{
+.databaseSelected{
     color: white;
     cursor: inherit;
 }
@@ -63,7 +63,7 @@
     border-bottom-left-radius: 15px
 }
 
-// ------------------------- Delete and Edit Buttons Style ------------------------- //
+// ------------------------- Delete/Edit/Info Buttons Style ------------------------- //
 .delete-button{
     background-color: #eb3939;
     border-radius: 7px;
@@ -78,7 +78,6 @@
     -webkit-transition: all 0.2s ease-in-out;
     box-shadow: 0 6px 4px -6px black;
 }
-
 .edit-button{
     background-color: #46bd68;
     border-radius: 7px;
@@ -94,7 +93,6 @@
     -webkit-transition: all 0.2s ease-in-out;
     box-shadow: 0 6px 4px -6px black;
 }
-
 .info-button{
     background-color: #3880ff;
     border-radius: 7px;
@@ -111,6 +109,7 @@
     box-shadow: 0 6px 4px -6px black;
 }
 
+// ------------------------- Edit Mode Style ------------------------- //
 .editModeEnabled {
     background-color: lightgray;
     height: 20px;

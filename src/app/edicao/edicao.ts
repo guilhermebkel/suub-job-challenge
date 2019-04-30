@@ -41,7 +41,7 @@ export class Edicao {
         this.schemaExample = restaurantSchemaExample;
         this.schemaCreate = restaurantSchema;
 
-        this.statusOfRestaurantsCreate = "status";
+        this.statusOfRestaurantsCreate = "databaseSelected";
         this.statusOfMenusCreate = null;
         this.statusOfReviewsCreate = null;
         this.statusOfOrdersCreate = null;
@@ -53,7 +53,7 @@ export class Edicao {
         this.schemaCreate = menuSchema;
 
         this.statusOfRestaurantsCreate = null;
-        this.statusOfMenusCreate = "status";
+        this.statusOfMenusCreate = "databaseSelected";
         this.statusOfReviewsCreate = null;
         this.statusOfOrdersCreate = null;
 
@@ -65,7 +65,7 @@ export class Edicao {
 
         this.statusOfRestaurantsCreate = null;
         this.statusOfMenusCreate = null;
-        this.statusOfReviewsCreate = "status";
+        this.statusOfReviewsCreate = "databaseSelected";
         this.statusOfOrdersCreate = null;
 
         this.databaseSelectorCreate = "reviews";
@@ -77,7 +77,7 @@ export class Edicao {
         this.statusOfRestaurantsCreate = null;
         this.statusOfMenusCreate = null;
         this.statusOfReviewsCreate = null;
-        this.statusOfOrdersCreate = "status";
+        this.statusOfOrdersCreate = "databaseSelected";
 
         this.databaseSelectorCreate = "orders";
     }
@@ -86,7 +86,7 @@ export class Edicao {
         this.schemaEdit = restaurantSchema;
         this.id = "";
 
-        this.statusOfRestaurantsEdit = "status";
+        this.statusOfRestaurantsEdit = "databaseSelected";
         this.statusOfMenusEdit = null;
         this.statusOfReviewsEdit = null;
         this.statusOfOrdersEdit = null;
@@ -98,7 +98,7 @@ export class Edicao {
         this.id = "";
 
         this.statusOfRestaurantsEdit = null;
-        this.statusOfMenusEdit = "status";
+        this.statusOfMenusEdit = "databaseSelected";
         this.statusOfReviewsEdit = null;
         this.statusOfOrdersEdit = null;
 
@@ -110,7 +110,7 @@ export class Edicao {
 
         this.statusOfRestaurantsEdit = null;
         this.statusOfMenusEdit = null;
-        this.statusOfReviewsEdit = "status";
+        this.statusOfReviewsEdit = "databaseSelected";
         this.statusOfOrdersEdit = null;
 
         this.databaseSelectorEdit = "reviews";
@@ -122,7 +122,7 @@ export class Edicao {
         this.statusOfRestaurantsEdit = null;
         this.statusOfMenusEdit = null;
         this.statusOfReviewsEdit = null;
-        this.statusOfOrdersEdit = "status";
+        this.statusOfOrdersEdit = "databaseSelected";
 
         this.databaseSelectorEdit = "orders";
     }
