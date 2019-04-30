@@ -13,6 +13,7 @@ export class Listagem {
 
     data: any;
     databaseSelector: string;
+    id: string;
 
     statusOfRestaurants: string;
     statusOfMenus: string;
@@ -27,7 +28,6 @@ export class Listagem {
     editMode: boolean;
     editModeStyle: string;
     editButtonName: string;
-
     item1: string;
     item2: string;
     item3: string;
@@ -151,24 +151,21 @@ export class Listagem {
         this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/delete/` + id).pipe(
             map(res => res.json())
         ).subscribe(response => {
-            if (this.databaseSelector == "restaurants") this.restaurantData();
-            else if (this.databaseSelector == "menus") this.menuData();
-            else if (this.databaseSelector == "reviews") this.reviewData();
-            else this.orderData();
-
+            this.reloadPage();
             this.alertResponse(response);
         });
     }
 
     edit(id) {
         this.editMode = !this.editMode;
+        this.id = id;
         if (this.editMode == true) {
-            this.editModeStyle = "editModeEnabled";
             this.editButtonName = "SAVE";
         }
         else {
             this.editModeStyle = "editModeDisabled";
             this.editButtonName = "EDIT";
+            this.id = "";
 
             this.index1 = (this.item1 == undefined) ? undefined : this.column2;
             this.index2 = (this.item2 == undefined) ? undefined : this.column3;
@@ -182,11 +179,7 @@ export class Listagem {
             this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/update`, data).pipe(
                 map(res => res.json())
             ).subscribe(response => {
-                if (this.databaseSelector == "restaurants") this.restaurantData();
-                else if (this.databaseSelector == "menus") this.menuData();
-                else if (this.databaseSelector == "reviews") this.reviewData();
-                else this.orderData();
-
+                this.reloadPage();
                 this.alertResponse(response);
             });
         }
@@ -207,7 +200,6 @@ export class Listagem {
         });
         alert.present();
     }
-
     async alertInformation(response) {
         let alert = await this.alertCtrl.create({
             message: JSON.stringify(response),
@@ -216,7 +208,6 @@ export class Listagem {
         });
         alert.present();
     }
-
     getValueOne(value) {
         this.item1 = value;
     }
@@ -225,5 +216,11 @@ export class Listagem {
     }
     getValueThree(value) {
         this.item3 = value;
+    }
+    reloadPage(){
+        if (this.databaseSelector == "restaurants") this.restaurantData();
+        else if (this.databaseSelector == "menus") this.menuData();
+        else if (this.databaseSelector == "reviews") this.reviewData();
+        else this.orderData();
     }
 }
