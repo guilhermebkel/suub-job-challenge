@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { ModalController, NavController, AlertController } from '@ionic/angular';
-import { restaurantSchemaExample, restaurantSchema } from '../../schemas/restaurantSchema'
-import { menuSchemaExample, menuSchema } from '../../schemas/menuSchema'
-import { reviewSchemaExample, reviewSchema } from '../../schemas/reviewSchema'
-import { orderSchemaExample, orderSchema } from '../../schemas/orderSchema'
+import { restaurantModelExample, restaurantModel } from '../../models/restaurantModel'
+import { menuModelExample, menuModel } from '../../models/menuModel'
+import { reviewModelExample, reviewModel } from '../../models/reviewModel'
+import { orderModelExample, orderModel } from '../../models/orderModel'
 
 @Component({
     templateUrl: 'edicao.html',
@@ -16,9 +16,9 @@ export class Edicao {
     databaseSelectorCreate: string;
     databaseSelectorEdit: string;
 
-    schemaExample: any;
-    schemaCreate: any;
-    schemaEdit: any;
+    modelExample: any;
+    modelCreate: any;
+    modelEdit: any;
 
     statusOfRestaurantsEdit: string;
     statusOfMenusEdit: string;
@@ -38,92 +38,76 @@ export class Edicao {
     }
 
     restaurantCreate() {
-        this.schemaExample = restaurantSchemaExample;
-        this.schemaCreate = restaurantSchema;
-
+        this.modelExample = restaurantModelExample;
+        this.modelCreate = restaurantModel;
         this.statusOfRestaurantsCreate = "databaseSelected";
         this.statusOfMenusCreate = null;
         this.statusOfReviewsCreate = null;
         this.statusOfOrdersCreate = null;
-
         this.databaseSelectorCreate = "restaurants";
     }
     menuCreate() {
-        this.schemaExample = menuSchemaExample;
-        this.schemaCreate = menuSchema;
-
+        this.modelExample = menuModelExample;
+        this.modelCreate = menuModel;
         this.statusOfRestaurantsCreate = null;
         this.statusOfMenusCreate = "databaseSelected";
         this.statusOfReviewsCreate = null;
         this.statusOfOrdersCreate = null;
-
         this.databaseSelectorCreate = "menus";
     }
     reviewCreate() {
-        this.schemaExample = reviewSchemaExample;
-        this.schemaCreate = reviewSchema;
-
+        this.modelExample = reviewModelExample;
+        this.modelCreate = reviewModel;
         this.statusOfRestaurantsCreate = null;
         this.statusOfMenusCreate = null;
         this.statusOfReviewsCreate = "databaseSelected";
         this.statusOfOrdersCreate = null;
-
         this.databaseSelectorCreate = "reviews";
     }
     orderCreate() {
-        this.schemaExample = orderSchemaExample;
-        this.schemaCreate = orderSchema;
-
+        this.modelExample = orderModelExample;
+        this.modelCreate = orderModel;
         this.statusOfRestaurantsCreate = null;
         this.statusOfMenusCreate = null;
         this.statusOfReviewsCreate = null;
         this.statusOfOrdersCreate = "databaseSelected";
-
         this.databaseSelectorCreate = "orders";
     }
 
     restaurantEdit() {
-        this.schemaEdit = restaurantSchema;
+        this.modelEdit = restaurantModel;
         this.id = "";
-
         this.statusOfRestaurantsEdit = "databaseSelected";
         this.statusOfMenusEdit = null;
         this.statusOfReviewsEdit = null;
         this.statusOfOrdersEdit = null;
-
         this.databaseSelectorEdit = "restaurants";
     }
     menuEdit() {
-        this.schemaEdit = menuSchema;
+        this.modelEdit = menuModel;
         this.id = "";
-
         this.statusOfRestaurantsEdit = null;
         this.statusOfMenusEdit = "databaseSelected";
         this.statusOfReviewsEdit = null;
         this.statusOfOrdersEdit = null;
-
         this.databaseSelectorEdit = "menus";
     }
     reviewEdit() {
-        this.schemaEdit = reviewSchema;
+        this.modelEdit = reviewModel;
         this.id = "";
-
         this.statusOfRestaurantsEdit = null;
         this.statusOfMenusEdit = null;
         this.statusOfReviewsEdit = "databaseSelected";
         this.statusOfOrdersEdit = null;
-
         this.databaseSelectorEdit = "reviews";
     }
     orderEdit() {
-        this.schemaEdit = orderSchema;
+        this.modelEdit = orderModel;
         this.id = "";
-
         this.statusOfRestaurantsEdit = null;
         this.statusOfMenusEdit = null;
         this.statusOfReviewsEdit = null;
         this.statusOfOrdersEdit = "databaseSelected";
-
         this.databaseSelectorEdit = "orders";
     }
 
@@ -144,13 +128,13 @@ export class Edicao {
     create() {
 
         try{
-            JSON.parse(this.schemaCreate);
-        }catch(error) {
+            JSON.parse(this.modelCreate);
+        } catch(error) {
             return this.alertResponse(error);
         }
 
         let data = {
-            userInput: JSON.parse(this.schemaCreate),
+            userInput: JSON.parse(this.modelCreate),
         }
 
         this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorCreate}/create`, data).pipe(
@@ -163,13 +147,13 @@ export class Edicao {
     edit() {
 
         try{
-            JSON.parse(this.schemaEdit);
-        }catch(error) {
+            JSON.parse(this.modelEdit);
+        } catch(error) {
             return this.alertResponse(error);
         }
 
         let data = {
-            userInput: JSON.parse(this.schemaEdit),
+            userInput: JSON.parse(this.modelEdit),
             id: this.id
         }
 

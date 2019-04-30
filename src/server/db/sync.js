@@ -3,17 +3,17 @@
 //------------------------------------------------------------------------------------------//
 var mongoose = require('mongoose');
 
-// Creates a array with all database
+// Creates an array with all database
 const database = require('./db.json');
 
 // Connects to MongoDB Server
 mongoose.connect('mongodb+srv://guilherme:123@cluster0-zqwij.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
 // Gets all database schemas
-const restaurantsSchema = require('./schemas/restaurantsSchema');
-const menuSchema = require('./schemas/menusSchema');
-const reviewsSchema = require('./schemas/reviewsSchema');
-const ordersSchema = require('./schemas/ordersSchema');
+const restaurantsSchema = require('./schemas/restaurantSchema');
+const menuSchema = require('./schemas/menuSchema');
+const reviewsSchema = require('./schemas/reviewSchema');
+const ordersSchema = require('./schemas/orderSchema');
 
 // Saves the offline database on MongoDB Server
 restaurantsSchema.create(database.restaurants);

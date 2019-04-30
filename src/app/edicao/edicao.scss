@@ -118,14 +118,14 @@
     padding-left: 15px; 
     line-height: 25px
 }
-.create-box-schema{
+.create-box-model{
     display: inline-block; 
     width: 50%; 
     height: 100%; 
     background-color: rgb(235, 235, 235); 
     overflow-y: scroll;
 }
-.create-box-schema h1{
+.create-box-model h1{
     width: 100%; 
     margin: auto auto; 
     font-family: monospace; 
@@ -136,7 +136,7 @@
     user-select: all; 
     padding: 15px;
 }
-.create-box-schema h2{
+.create-box-model h2{
     color: black;
     padding-left: 15px;
     font-size: 18px;
@@ -182,7 +182,7 @@
         margin: 0px;
         margin-bottom: 20px;
     }
-    .create-box-schema h1{
+    .create-box-model h1{
         width: 100%; 
         margin: auto auto; 
         font-family: monospace; 
@@ -193,7 +193,7 @@
         user-select: all; 
         padding: 15px;
     }
-    .create-box-schema h2{
+    .create-box-model h2{
         color: black;
         padding-left: 15px;
         font-size: 14px;

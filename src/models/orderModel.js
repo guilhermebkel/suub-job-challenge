@@ -1,4 +1,4 @@
-orderSchemaExample = '{' + '\n' +
+orderModelExample = '{' + '\n' +
     '"customer"' + ': ' + '"Guilherme"' + ',' + '\n' +
     '"order"' + ': ' + '"Batata Frita"' + ',' + '\n' +
     '"price"' + ': ' + '10.0' + ',' + '\n' +
@@ -6,7 +6,7 @@ orderSchemaExample = '{' + '\n' +
     '"restaurant_id"' + ': ' + '"coffee-corner"' + ',' + '\n' +
     '"reviews_id"' + ': ' + '"guilherme-review"' + '\n' + '}';
 
-orderSchema = '{' + '\n' +
+orderModel = '{' + '\n' +
     '"customer"' + ': ' + '" "' + ',' + '\n' +
     '"order"' + ': ' + '" "' + ',' + '\n' +
     '"price"' + ': ' + '0' + ',' + '\n' +
@@ -15,6 +15,6 @@ orderSchema = '{' + '\n' +
     '"reviews_id"' + ': ' + '" "' + '\n' + '}';
 
 module.exports = {
-    orderSchemaExample,
-    orderSchema
+    orderModelExample,
+    orderModel
 }

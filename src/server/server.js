@@ -1,24 +1,25 @@
 const restify = require('restify')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
-const RestaurantSchema = require('../db/schemas/restaurantsSchema');
-const MenuSchema = require('../db/schemas/menusSchema');
-const ReviewSchema = require('../db/schemas/reviewsSchema');
-const OrderSchema = require('../db/schemas/ordersSchema');
-
 const cors = require('cors');
 const logger = require('morgan');
 const methodOverride = require('method-override')
 
+// Database schemas
+const RestaurantSchema = require('./db/schemas/restaurantSchema');
+const MenuSchema = require('./db/schemas/menuSchema');
+const ReviewSchema = require('./db/schemas/reviewSchema');
+const OrderSchema = require('./db/schemas/orderSchema');
+
 // Starts the restify server
 const server = restify.createServer();
 
+// Helps accessing the server from any IP
 server.on('MethodNotAllowed', unknownMethodHandler);
 function unknownMethodHandler(req, res) {
     if (req.method.toLowerCase() === 'options') {
         console.log('received an options method request');
-      var allowHeaders = ['Accept', 'Accept-Version', 'Content-Type', 'Api-Version', 'Origin', 'X-Requested-With']; // added Origin & X-Requested-With
+      var allowHeaders = ['Accept', 'Accept-Version', 'Content-Type', 'Api-Version', 'Origin', 'X-Requested-With'];
   
       if (res.methods.indexOf('OPTIONS') === -1) res.methods.push('OPTIONS');
   
@@ -48,11 +49,11 @@ server.use(cors());
 server.use(logger('dev'));
 server.use(methodOverride());
 
-// READ Method
 server.get('/', function (req, res) {
     res.json({ "status": "Server is running" });
 })
 
+// READ Method
 server.get('/restaurants', (req, res) => {
     RestaurantSchema.find({}, (err, data) => {
         if (data) {

@@ -39,11 +39,11 @@
         </div>
         <div class="create-box">
           <div class="create-box-userInput">
-            <textarea [(ngModel)]="schemaCreate" type="text"></textarea>
+            <textarea [(ngModel)]="modelCreate" type="text"></textarea>
           </div>
-          <div class="create-box-schema">
+          <div class="create-box-model">
             <h2>Example:</h2>
-            <h1>{{schemaExample}}</h1>
+            <h1>{{modelExample}}</h1>
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
             <ion-label floating>Object ID:</ion-label>
             <ion-input [(ngModel)]="id" type="text" placeholder="Click here and type the ID of the object you want to edit..."></ion-input>
           </ion-item>
-          <textarea class="edit-box-userInput" [(ngModel)]="schemaEdit"></textarea>
+          <textarea class="edit-box-userInput" [(ngModel)]="modelEdit"></textarea>
         </div>
       </div>
     </div>

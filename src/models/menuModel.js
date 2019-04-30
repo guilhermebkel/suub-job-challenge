@@ -1,11 +1,11 @@
-menuSchemaExample = '{' + '\n' +
+menuModelExample = '{' + '\n' +
     '"imagePath"' + ': ' + '"assets/img/foods/coke.png"' + ',' + '\n' +
     '"name"' + ': ' + '"Refrigerante"' + ',' + '\n' +
     '"description"' + ': ' + '"O refri mais gelado da c_idade."' + ',' + '\n' +
     '"price"' + ': ' + '4.5' + ',' + '\n' +
     '"restaurant_id"' + ': ' + '"burger-house"' + '\n' + '}';
 
-menuSchema = '{' + '\n' +
+menuModel = '{' + '\n' +
     '"imagePath"' + ': ' + '" "' + ',' + '\n' +
     '"name"' + ': ' + '" "' + ',' + '\n' +
     '"description"' + ': ' + '" "' + ',' + '\n' +
@@ -13,6 +13,6 @@ menuSchema = '{' + '\n' +
     '"restaurant_id"' + ': ' + '" "' + '\n' + '}';
 
 module.exports = {
-    menuSchemaExample,
-    menuSchema
+    menuModelExample,
+    menuModel
 }

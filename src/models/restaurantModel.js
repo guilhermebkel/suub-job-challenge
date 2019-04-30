@@ -1,4 +1,4 @@
-restaurantSchemaExample = '{' + '\n' +
+restaurantModelExample = '{' + '\n' +
     '"name"' + ': ' + '"Green Food"' + ',' + '\n' +
     '"category"' + ': ' + '"Saudável"' + ',' + '\n' +
     '"deliveryEstimate"' + ': ' + '"75m"' + ',' + '\n' +
@@ -7,7 +7,7 @@ restaurantSchemaExample = '{' + '\n' +
     '"about"' + ': ' + '"Comidas caras"' + ',' + '\n' +
     '"hours"' + ': ' + '"Almoço das 11h às 15h"' + '\n' + '}';
 
-restaurantSchema = '{' + '\n' +
+restaurantModel = '{' + '\n' +
     '"name"' + ': ' + '" "' + ',' + '\n' +
     '"category"' + ': ' + '" "' + ',' + '\n' +
     '"deliveryEstimate"' + ': ' + '" "' + ',' + '\n' +
@@ -17,6 +17,6 @@ restaurantSchema = '{' + '\n' +
     '"hours"' + ': ' + '" "' + '\n' + '}';
 
 module.exports = {
-    restaurantSchemaExample,
-    restaurantSchema
+    restaurantModelExample,
+    restaurantModel
 }
