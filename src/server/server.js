@@ -55,22 +55,42 @@ server.get('/', function (req, res) {
 
 server.get('/restaurants', (req, res) => {
     RestaurantSchema.find({}, (err, data) => {
-        res.json(data);
+        if (data) {
+            res.json(data);
+        }
+        else{
+            res.json(err);
+        }
     })
 })
 server.get('/menus', (req, res) => {
     MenuSchema.find({}, (err, data) => {
-        res.json(data);
+        if (data) {
+            res.json(data);
+        }
+        else{
+            res.json(err);
+        }
     })
 })
 server.get('/reviews', (req, res) => {
     ReviewSchema.find({}, (err, data) => {
-        res.json(data);
+        if (data) {
+            res.json(data);
+        }
+        else{
+            res.json(err);
+        }
     })
 })
 server.get('/orders', (req, res) => {
     OrderSchema.find({}, (err, data) => {
-        res.json(data);
+        if (data) {
+            res.json(data);
+        }
+        else{
+            res.json(err);
+        }
     })
 })
 
@@ -80,12 +100,18 @@ server.get('/restaurants/delete/:id', (req, res) => {
         if (data) {
             res.json("Deleted");
         }
+        else{
+            res.json(err);
+        }
     });
 })
 server.get('/menus/delete/:id', (req, res) => {
     MenuSchema.findByIdAndRemove(req.params.id, (err, data) => {
         if (data) {
             res.json("Deleted");
+        }
+        else{
+            res.json(err);
         }
     });
 })
@@ -94,12 +120,18 @@ server.get('/reviews/delete/:id', (req, res) => {
         if (data) {
             res.json("Deleted");
         }
+        else{
+            res.json(err);
+        }
     });
 })
 server.get('/orders/delete/:id', (req, res) => {
     OrderSchema.findByIdAndRemove(req.params.id, (err, data) => {
         if (data) {
             res.json("Deleted");
+        }
+        else{
+            res.json(err);
         }
     });
 })
@@ -110,12 +142,18 @@ server.post('/restaurants/create', (req, res) => {
         if (data) {
             res.json("Created");
         }
+        else{
+            res.json(err);
+        }
     });
 })
 server.post('/menus/create', (req, res) => {
     MenuSchema.create(req.body.userInput, (err, data) => {
         if (data) {
             res.json("Created");
+        }
+        else{
+            res.json(err);
         }
     });
 })
@@ -124,12 +162,18 @@ server.post('/reviews/create', (req, res) => {
         if (data) {
             res.json("Created");
         }
+        else{
+            res.json(err);
+        }
     });
 })
 server.post('/orders/create', (req, res) => {
     OrderSchema.create(req.body.userInput, (err, data) => {
         if (data) {
             res.json("Created");
+        }
+        else{
+            res.json(err);
         }
     });
 })
@@ -140,12 +184,18 @@ server.post('/restaurants/update', (req,res) => {
         if(data) {
             res.json("Updated");
         }
+        else{
+            res.json(err);
+        }
     });
 })
 server.post('/menus/update', (req,res) => {
     MenuSchema.findByIdAndUpdate(req.body.id, req.body.userInput, (err, data) => {
         if(data) {
             res.json("Updated");
+        }
+        else{
+            res.json(err);
         }
     });
 })
@@ -154,6 +204,9 @@ server.post('/reviews/update', (req,res) => {
         if(data) {
             res.json("Updated");
         }
+        else{
+            res.json(err);
+        }
     });
 })
 server.post('/orders/update', (req,res) => {
@@ -161,27 +214,50 @@ server.post('/orders/update', (req,res) => {
         if(data) {
             res.json("Updated");
         }
+        else{
+            res.json(err);
+        }
     });
 })
 
 // GET Info by ID
 server.get('/restaurants/:id', (req,res) => {
     RestaurantSchema.findOne({"_id": req.params.id}, (err, data) => {
-        res.json(data);
+        if (data) {
+            res.json(data);
+        }
+        else{
+            res.json(err);
+        }
     })
 })
 server.get('/menus/:id', (req,res) => {
     MenuSchema.findOne({"_id": req.params.id}, (err, data) => {
-        res.json(data);
+        if (data) {
+            res.json(data);
+        }
+        else{
+            res.json(err);
+        }
     })
 })
 server.get('/reviews/:id', (req,res) => {
     ReviewSchema.findOne({"_id": req.params.id}, (err, data) => {
-        res.json(data);
+        if (data) {
+            res.json(data);
+        }
+        else{
+            res.json(err);
+        }
     })
 })
 server.get('/orders/:id', (req,res) => {
     OrderSchema.findOne({"_id": req.params.id}, (err, data) => {
-        res.json(data);
+        if (data) {
+            res.json(data);
+        }
+        else{
+            res.json(err);
+        }
     })
 })
