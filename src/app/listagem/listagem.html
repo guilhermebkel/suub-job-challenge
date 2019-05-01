@@ -33,7 +33,8 @@
       </div>
 
       <ngx-datatable id="datatable" class="material" [rows]="data" [columnMode]="'force'" [sortType]="'multi'"
-        [headerHeight]="'40px'" [footerHeight]="'auto'" [limit]="5" [rowHeight]="'auto'" reordable="true">
+        [headerHeight]="'40px'" [footerHeight]="'auto'" [limit]="5" [rowHeight]="'auto'" reordable="true" 
+        [messages]="{emptyMessage: 'The database is loading, please wait...'}">
         
         <ngx-datatable-column [prop]="column1"></ngx-datatable-column>
 
