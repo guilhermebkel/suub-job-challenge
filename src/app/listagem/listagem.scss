@@ -62,6 +62,14 @@
     border-bottom-right-radius: 15px; 
     border-bottom-left-radius: 15px
 }
+.datatable-rows{
+    height:50px;
+    overflow: hidden;
+    display:block;
+    white-space:normal;
+    color: black;
+    margin: auto auto;
+}
 
 // ------------------------- Delete/Edit/Info Buttons Style ------------------------- //
 .delete-button{
@@ -132,11 +140,5 @@
 
 // ------------------------- Edit Mode Style ------------------------- //
 .editModeEnabled {
-    background-color: #ffbb94;
-    height: 20px;
-}
-.editModeDisabled {
-    background-color: transparent;
-    pointer-events: none; 
-    height: 20px;
+    background-color: lightgray;
 }

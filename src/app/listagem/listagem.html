@@ -8,7 +8,7 @@
         <a href="https://suub.me/"><img id="logo" src="../assets/logo/logo.png"></a>
       </div>
       <div>
-        <h1 id="navbar-text" routerLink="/edicao" routerDirection="root">EDIÇÃO</h1>
+        <h1 id="navbar-text" routerLink="/edicao" routerDirection="root">CONFIG.</h1>
       </div>
     </div>
   </ion-toolbar>
@@ -33,25 +33,25 @@
       </div>
 
       <ngx-datatable id="datatable" class="material" [rows]="data" [columnMode]="'force'" [sortType]="'multi'"
-        [headerHeight]="'auto'" [footerHeight]="'auto'" [limit]="5" [rowHeight]="'auto'" reordable="true">
+        [headerHeight]="'40px'" [footerHeight]="'auto'" [limit]="5" [rowHeight]="'auto'" reordable="true">
         
         <ngx-datatable-column [prop]="column1"></ngx-datatable-column>
 
         <ngx-datatable-column sortable="false" [prop]="column2">
-          <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-            <ion-input [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':'editModeDisabled'" [value]="data[rowIndex]._id===id?getValueOne(value):return"></ion-input>
+          <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template wrap text-wrap>
+            <ion-textarea class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueOne(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
           </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column sortable="false" [prop]="column3">
           <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-            <ion-input [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':'editModeDisabled'" [value]="data[rowIndex]._id===id?getValueTwo(value):return"></ion-input>
+            <ion-textarea class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueTwo(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
           </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column sortable="false" [prop]="column4">
           <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-            <ion-input [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':'editModeDisabled'" [value]="data[rowIndex]._id===id?getValueThree(value):return"></ion-input>
+            <ion-textarea class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueThree(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
           </ng-template>
         </ngx-datatable-column>
 

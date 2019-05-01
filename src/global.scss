@@ -41,6 +41,7 @@
     -webkit-transition: all 0.2s ease-in-out;
 }
 
+// ------------------------------ Alert Information Styles ---------------------------------- //
 .alertInformation {
     -webkit-user-select: text;
     -moz-user-select: text;
@@ -48,6 +49,18 @@
     user-select: text;
 }
 
-html {
+// ------------------------------ Page Styles ---------------------------------- //
+ion-content {
     scroll-behavior: smooth;
+}
+
+// ------------------------------ Datatable Responsive Styles ---------------------------------- //
+@media (max-width: 576px) {
+    .ngx-datatable.material {
+        .datatable-header {
+            .datatable-header-cell {
+                font-size: 2.4vw;
+            }
+        }
+    }
 }
