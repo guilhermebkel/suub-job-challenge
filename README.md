@@ -13,7 +13,7 @@ Back-end: REST API with CRUD Control ```[Restify.js]```
 
 Front-end: Interface that makes the Back-end CRUD on Database ```[Ionic 4]```
 - Ionic 4 is preferred;
-- The interface will be hosted on Firebase.
+- The interface will be hosted on Firebase;
 - Listing Page with two working buttons (Delete and edit) for every datatable row;
 - Editting Page with two working CRUD methods (Create and Update);
 - It needs a Modal for the CRUD Interactions;
