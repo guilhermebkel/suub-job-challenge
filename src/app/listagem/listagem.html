@@ -38,20 +38,20 @@
         <ngx-datatable-column [prop]="column1"></ngx-datatable-column>
 
         <ngx-datatable-column sortable="false" [prop]="column2">
-          <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template wrap text-wrap>
-            <ion-textarea class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueOne(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
+          <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+            <ion-textarea no-padding class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueOne(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
           </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column sortable="false" [prop]="column3">
           <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-            <ion-textarea class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueTwo(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
+            <ion-textarea no-padding class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueTwo(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
           </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column sortable="false" [prop]="column4">
           <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-            <ion-textarea class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueThree(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
+            <ion-textarea no-padding class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueThree(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
           </ng-template>
         </ngx-datatable-column>
 
