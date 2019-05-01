@@ -65,13 +65,13 @@
 
 // ------------------------- Delete/Edit/Info Buttons Style ------------------------- //
 .delete-button{
-    background-color: #eb3939;
+    background-color: #ff3333;
     border-radius: 7px;
     padding: 5px;
     color: white;
     font-size: 12px;
     font-weight: bold;
-    box-shadow: 0 6px 4px -6px #eb3939;
+    box-shadow: 0 6px 4px -6px #ff3333;
 }
 .delete-button:hover{
     background-color: black;
@@ -79,19 +79,25 @@
     box-shadow: 0 6px 4px -6px black;
 }
 .edit-button{
-    background-color: #46bd68;
+    background-color: #33c05b;
     border-radius: 7px;
     padding: 5px;
     color: white;
     font-size: 12px;
     font-weight: bold;
     margin-left: 5px;
-    box-shadow: 0 6px 4px -6px #46bd68;
+    box-shadow: 0 6px 4px -6px #33c05b;
 }
 .edit-button:hover{
     background-color: black;
     -webkit-transition: all 0.2s ease-in-out;
     box-shadow: 0 6px 4px -6px black;
+}
+.edit-button-disabled{
+    pointer-events: none;
+}
+.edit-button-enabled{
+    pointer-events: all;
 }
 .info-button{
     background-color: #3880ff;
@@ -108,10 +114,25 @@
     -webkit-transition: all 0.2s ease-in-out;
     box-shadow: 0 6px 4px -6px black;
 }
+.save-button{
+    background-color: #ff7422;
+    border-radius: 7px;
+    padding: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+    box-shadow: 0 6px 4px -6px #ff7422;
+}
+.save-button:hover{
+    background-color: black;
+    -webkit-transition: all 0.2s ease-in-out;
+    box-shadow: 0 6px 4px -6px black;
+}
 
 // ------------------------- Edit Mode Style ------------------------- //
 .editModeEnabled {
-    background-color: lightgray;
+    background-color: #ffbb94;
     height: 20px;
 }
 .editModeDisabled {

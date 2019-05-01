@@ -9,7 +9,7 @@ import { orderModelExample, orderModel } from '../../models/orderModel'
 
 @Component({
     templateUrl: 'edicao.html',
-    styleUrls: ['./edicao.scss'],
+    styleUrls: ['./edicao.scss', './edicao-responsive.scss'],
 })
 export class Edicao {
 

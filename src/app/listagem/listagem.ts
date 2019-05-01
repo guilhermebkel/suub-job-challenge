@@ -7,7 +7,7 @@ import { ModalExclusaoPage } from '../modal-exclusao/modal-exclusao'
 @Component({
     selector: 'app-home',
     templateUrl: 'listagem.html',
-    styleUrls: ['./listagem.scss'],
+    styleUrls: ['./listagem.scss', './listagem-responsive.scss'],
 })
 export class Listagem {
 
@@ -27,7 +27,7 @@ export class Listagem {
 
     editMode: boolean;
     editModeStyle: string;
-    editButtonName: string;
+    
     item1: string;
     item2: string;
     item3: string;
@@ -49,7 +49,6 @@ export class Listagem {
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
-            this.editButtonName = "EDIT";
             this.id = "";
 
             this.column1 = "_id";
@@ -73,7 +72,6 @@ export class Listagem {
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
-            this.editButtonName = "EDIT";
             this.id = "";
 
             this.column1 = "_id";
@@ -97,7 +95,6 @@ export class Listagem {
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
-            this.editButtonName = "EDIT";
             this.id = "";
 
             this.column1 = "_id";
@@ -121,7 +118,6 @@ export class Listagem {
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
-            this.editButtonName = "EDIT";
             this.id = "";
 
             this.column1 = "_id";
@@ -160,12 +156,9 @@ export class Listagem {
     edit(id) {
         this.editMode = !this.editMode;
         this.id = id;
-        if (this.editMode == true) {
-            this.editButtonName = "SAVE";
-        }
-        else {
+
+        if(this.editMode == false) {
             this.editModeStyle = "editModeDisabled";
-            this.editButtonName = "EDIT";
             this.id = "";
 
             let data = {

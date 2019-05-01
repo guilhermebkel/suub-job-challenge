@@ -13,11 +13,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable'
 
 import { ModalExclusaoPageModule } from './modal-exclusao/modal-exclusao.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [ModalExclusaoPageModule, NgxDatatableModule, HttpModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [ModalExclusaoPageModule, NgxDatatableModule, HttpModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     StatusBar,
     SplashScreen,
