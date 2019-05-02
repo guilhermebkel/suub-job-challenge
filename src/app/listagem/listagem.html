@@ -36,7 +36,7 @@
         [headerHeight]="'40px'" [footerHeight]="'auto'" [limit]="5" [rowHeight]="'auto'" reordable="true" 
         [messages]="{emptyMessage: 'The database is loading, please wait...', totalMessage: 'total'}">
         
-        <ngx-datatable-column [prop]="column1"></ngx-datatable-column>
+        <ngx-datatable-column [cellClass]="'datatable-id-row'" [prop]="column1"></ngx-datatable-column>
 
         <ngx-datatable-column sortable="false" [prop]="column2">
           <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
