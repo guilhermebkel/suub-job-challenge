@@ -153,13 +153,17 @@ export class Listagem {
         });
     }
 
-    edit(id) {
+    edit(id, initialItem1, initialItem2, initialItem3) {
         this.editMode = !this.editMode;
         this.id = id;
 
         if(this.editMode == false) {
             this.editModeStyle = "editModeDisabled";
             this.id = "";
+
+            if(initialItem1 === this.item1 && initialItem2 === this.item2 && initialItem3 === this.item3){
+                return;
+            }
 
             let data = {
                 userInput: JSON.parse(`{"${this.column2}": "${this.item1}", "${this.column3}": "${this.item2}", "${this.column4}": "${this.item3}"}`),

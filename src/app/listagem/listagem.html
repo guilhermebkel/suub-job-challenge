@@ -61,10 +61,10 @@
             <button class="delete-button" (click)="openModalExclusao(value)">
               DELETE
             </button>
-            <button class="edit-button" *ngIf="data[rowIndex]._id!==id" [ngClass]="editMode && data[rowIndex]._id!==id?'edit-button-disabled':'edit-button-enabled'" (click)="edit(value)">
+            <button class="edit-button" *ngIf="value!==id" [ngClass]="editMode && value!==id?'edit-button-disabled':'edit-button-enabled'" (click)="edit(value)">
               EDIT
             </button>
-            <button *ngIf="editMode && data[rowIndex]._id===id" class="save-button" (click)="edit(value)">
+            <button *ngIf="editMode && value===id" class="save-button" (click)="edit(value, data[rowIndex][column2], data[rowIndex][column3], data[rowIndex][column4])">
               SAVE
             </button>
             <button class="info-button" (click)="info(value)">
