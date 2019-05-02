@@ -63,4 +63,22 @@ ion-content {
             }
         }
     }
+    .datatable-body-cell-label{
+        font-size: 2.7vw;
+        white-space: break-word;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: all;
+    }
+    .datatable-body-cell-label span{
+        font-size: 2.7vw;
+        white-space: break-word;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: all;
+    }
 }
+
+

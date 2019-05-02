@@ -3,12 +3,12 @@
     .datatable-rows{
         height: 90px;
         width: 50px;
+        white-space: break-word;
         font-size: 2.5vw;
         overflow: hidden;
         display: block;
         color: black;
     }
-
     .delete-button{
         background-color: #ff3333;
         border-radius: 7px;
