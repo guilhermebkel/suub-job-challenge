@@ -2,8 +2,8 @@
   "name": "Suub Challenge",
   "short_name": "Suub Challenge",
   "theme_color": "#ff7422",
-  "background_color": "white",
-  "display": "standalone",
+  "background_color": "#ff7422",
+  "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
   "icons": [
