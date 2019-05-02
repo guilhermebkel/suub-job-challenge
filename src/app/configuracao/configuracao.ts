@@ -8,10 +8,10 @@ import { reviewModelExample, reviewModel } from '../../models/reviewModel'
 import { orderModelExample, orderModel } from '../../models/orderModel'
 
 @Component({
-    templateUrl: 'edicao.html',
-    styleUrls: ['./edicao.scss', './edicao-responsive.scss'],
+    templateUrl: 'configuracao.html',
+    styleUrls: ['./configuracao.scss', './configuracao-responsive.scss'],
 })
-export class Edicao {
+export class Configuracao {
 
     databaseSelectorCreate: string;
     databaseSelectorEdit: string;
@@ -40,74 +40,90 @@ export class Edicao {
     restaurantCreate() {
         this.modelExample = restaurantModelExample;
         this.modelCreate = restaurantModel;
+
         this.statusOfRestaurantsCreate = "databaseSelected";
         this.statusOfMenusCreate = null;
         this.statusOfReviewsCreate = null;
         this.statusOfOrdersCreate = null;
+
         this.databaseSelectorCreate = "restaurants";
     }
     menuCreate() {
         this.modelExample = menuModelExample;
         this.modelCreate = menuModel;
+
         this.statusOfRestaurantsCreate = null;
         this.statusOfMenusCreate = "databaseSelected";
         this.statusOfReviewsCreate = null;
         this.statusOfOrdersCreate = null;
+
         this.databaseSelectorCreate = "menus";
     }
     reviewCreate() {
         this.modelExample = reviewModelExample;
         this.modelCreate = reviewModel;
+
         this.statusOfRestaurantsCreate = null;
         this.statusOfMenusCreate = null;
         this.statusOfReviewsCreate = "databaseSelected";
         this.statusOfOrdersCreate = null;
+
         this.databaseSelectorCreate = "reviews";
     }
     orderCreate() {
         this.modelExample = orderModelExample;
         this.modelCreate = orderModel;
+
         this.statusOfRestaurantsCreate = null;
         this.statusOfMenusCreate = null;
         this.statusOfReviewsCreate = null;
         this.statusOfOrdersCreate = "databaseSelected";
+
         this.databaseSelectorCreate = "orders";
     }
 
     restaurantEdit() {
         this.modelEdit = restaurantModel;
         this.id = "";
+
         this.statusOfRestaurantsEdit = "databaseSelected";
         this.statusOfMenusEdit = null;
         this.statusOfReviewsEdit = null;
         this.statusOfOrdersEdit = null;
+
         this.databaseSelectorEdit = "restaurants";
     }
     menuEdit() {
         this.modelEdit = menuModel;
         this.id = "";
+
         this.statusOfRestaurantsEdit = null;
         this.statusOfMenusEdit = "databaseSelected";
         this.statusOfReviewsEdit = null;
         this.statusOfOrdersEdit = null;
+
         this.databaseSelectorEdit = "menus";
     }
     reviewEdit() {
         this.modelEdit = reviewModel;
         this.id = "";
+
         this.statusOfRestaurantsEdit = null;
         this.statusOfMenusEdit = null;
         this.statusOfReviewsEdit = "databaseSelected";
         this.statusOfOrdersEdit = null;
+
         this.databaseSelectorEdit = "reviews";
     }
     orderEdit() {
         this.modelEdit = orderModel;
         this.id = "";
+
         this.statusOfRestaurantsEdit = null;
         this.statusOfMenusEdit = null;
         this.statusOfReviewsEdit = null;
         this.statusOfOrdersEdit = "databaseSelected";
+
         this.databaseSelectorEdit = "orders";
     }
 
@@ -126,7 +142,6 @@ export class Edicao {
     }
 
     create() {
-
         try{
             JSON.parse(this.modelCreate);
         } catch(error) {
@@ -145,7 +160,6 @@ export class Edicao {
     }
 
     edit() {
-
         try{
             JSON.parse(this.modelEdit);
         } catch(error) {

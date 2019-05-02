@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { Edicao } from './edicao';
+import { Configuracao } from './configuracao';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable'
 
@@ -17,10 +17,10 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable'
     RouterModule.forChild([
       {
         path: '',
-        component: Edicao
+        component: Configuracao
       }
     ])
   ],
-  declarations: [Edicao]
+  declarations: [Configuracao]
 })
-export class EdicaoModule {}
+export class ConfiguracaoModule {}
