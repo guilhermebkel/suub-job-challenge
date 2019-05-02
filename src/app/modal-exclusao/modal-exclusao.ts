@@ -4,7 +4,7 @@ import { ModalController, NavParams } from '@ionic/angular';
 @Component({
   selector: 'app-modal-exclusao',
   templateUrl: './modal-exclusao.html',
-  styleUrls: ['./modal-exclusao.scss'],
+  styleUrls: ['./modal-exclusao.scss', './modal-exclusao-responsive.scss'],
 })
 export class ModalExclusaoPage implements OnInit {
 

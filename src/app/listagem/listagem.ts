@@ -28,9 +28,9 @@ export class Listagem {
     editMode: boolean;
     editModeStyle: string;
     
-    item1: string;
-    item2: string;
-    item3: string;
+    newItem1: string;
+    newItem2: string;
+    newItem3: string;
 
     constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController) {
         this.restaurantData();
@@ -161,12 +161,12 @@ export class Listagem {
             this.editModeStyle = "editModeDisabled";
             this.id = "";
 
-            if(initialItem1 === this.item1 && initialItem2 === this.item2 && initialItem3 === this.item3){
+            if(initialItem1 === this.newItem1 && initialItem2 === this.newItem2 && initialItem3 === this.newItem3){
                 return;
             }
 
             let data = {
-                userInput: JSON.parse(`{"${this.column2}": "${this.item1}", "${this.column3}": "${this.item2}", "${this.column4}": "${this.item3}"}`),
+                userInput: JSON.parse(`{"${this.column2}": "${this.newItem1}", "${this.column3}": "${this.newItem2}", "${this.column4}": "${this.newItem3}"}`),
                 id: id
             }
 
@@ -203,13 +203,13 @@ export class Listagem {
         alert.present();
     }
     getValueOne(value) {
-        this.item1 = value;
+        this.newItem1 = value;
     }
     getValueTwo(value) {
-        this.item2 = value;
+        this.newItem2 = value;
     }
     getValueThree(value) {
-        this.item3 = value;
+        this.newItem3 = value;
     }
     reloadPage(){
         if (this.databaseSelector == "restaurants") this.restaurantData();
