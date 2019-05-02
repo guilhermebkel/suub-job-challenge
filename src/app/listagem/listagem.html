@@ -32,42 +32,42 @@
         </div>
       </div>
 
-      <ngx-datatable id="datatable" class="material" [rows]="data" [columnMode]="'force'" [sortType]="'multi'"
-        [headerHeight]="'40px'" [footerHeight]="'auto'" [limit]="5" [rowHeight]="'auto'" reordable="true" 
+      <ngx-datatable id="datatable" class="material" [rows]="data" [columnMode]="'force'"
+        [headerHeight]="'40px'" [footerHeight]="'auto'" [limit]="5" [rowHeight]="'auto'"
         [messages]="{emptyMessage: 'The database is loading, please wait...', totalMessage: 'total'}">
         
-        <ngx-datatable-column [cellClass]="'datatable-id-row'" [prop]="column1"></ngx-datatable-column>
+        <ngx-datatable-column [cellClass]="'datatable-id-row'" [sortable]="false" [prop]="column1"></ngx-datatable-column>
 
-        <ngx-datatable-column sortable="false" [prop]="column2">
+        <ngx-datatable-column [sortable]="false" [prop]="column2">
           <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
             <ion-textarea no-padding class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueOne(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
           </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column sortable="false" [prop]="column3">
+        <ngx-datatable-column [sortable]="false" [prop]="column3">
           <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
             <ion-textarea no-padding class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueTwo(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
           </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column sortable="false" [prop]="column4">
+        <ngx-datatable-column [sortable]="false" [prop]="column4">
           <ng-template let-row="data" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
             <ion-textarea no-padding class="datatable-rows" [(ngModel)]="value" [ngClass]="data[rowIndex]._id===id?'editModeEnabled':return" [value]="data[rowIndex]._id===id?getValueThree(value):return" [disabled]="!(data[rowIndex]._id===id)"></ion-textarea>
           </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="Actions" sortable="false" [prop]="column1">
+        <ngx-datatable-column name="Actions" [sortable]="false" [prop]="column1">
           <ng-template let-row="data" let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-            <button class="delete-button" (click)="openModalExclusao(value)">
+            <button class="delete-button" (click)="openModalExclusao(data[rowIndex]._id)">
               DELETE
             </button>
-            <button class="edit-button" *ngIf="value!==id" [ngClass]="editMode && value!==id?'edit-button-disabled':'edit-button-enabled'" (click)="edit(value)">
+            <button class="edit-button" *ngIf="data[rowIndex]._id!==id" [ngClass]="editMode && data[rowIndex]._id!==id?'edit-button-disabled':'edit-button-enabled'" (click)="edit(data[rowIndex]._id)">
               EDIT
             </button>
-            <button *ngIf="editMode && value===id" class="save-button" (click)="edit(value, data[rowIndex][column2], data[rowIndex][column3], data[rowIndex][column4])">
+            <button *ngIf="editMode && data[rowIndex]._id===id" class="save-button" (click)="edit(data[rowIndex]._id, data[rowIndex][column2], data[rowIndex][column3], data[rowIndex][column4])">
               SAVE
             </button>
-            <button class="info-button" (click)="info(value)">
+            <button class="info-button" (click)="info(data[rowIndex]._id)">
               INFO
             </button>
           </ng-template>
