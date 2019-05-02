@@ -25,16 +25,16 @@
       <div class="databases">
         <div class="databases-navbar">
           <div (click)="restaurantCreate()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfRestaurantsCreate">Restaurants</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='restaurants'?'databaseSelected':null">Restaurants</h1>
           </div>
           <div (click)="menuCreate()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfMenusCreate">Menus</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='menus'?'databaseSelected':null">Menus</h1>
           </div>
           <div (click)="reviewCreate()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfReviewsCreate">Reviews</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='reviews'?'databaseSelected':null">Reviews</h1>
           </div>
           <div (click)="orderCreate()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfOrdersCreate">Orders</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='orders'?'databaseSelected':null">Orders</h1>
           </div>
         </div>
         <div class="create-box">
@@ -58,16 +58,16 @@
       <div class="databases">
         <div class="databases-navbar">
           <div (click)="restaurantEdit()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfRestaurantsEdit">Restaurants</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='restaurants'?'databaseSelected':null">Restaurants</h1>
           </div>
           <div (click)="menuEdit()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfMenusEdit">Menus</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='menus'?'databaseSelected':null">Menus</h1>
           </div>
           <div (click)="reviewEdit()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfReviewsEdit">Reviews</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='reviews'?'databaseSelected':null">Reviews</h1>
           </div>
           <div (click)="orderEdit()">
-            <h1 class="databases-navbar-title" [ngClass]="statusOfOrdersEdit">Orders</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='orders'?'databaseSelected':null">Orders</h1>
           </div>
         </div>
         <div class="edit-box">

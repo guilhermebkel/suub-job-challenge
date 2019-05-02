@@ -15,11 +15,6 @@ export class Listagem {
     databaseSelector: string;
     id: string;
 
-    statusOfRestaurants: string;
-    statusOfMenus: string;
-    statusOfReviews: string;
-    statusOfOrders: string;
-
     column1: string;
     column2: string;
     column3: string;
@@ -41,11 +36,7 @@ export class Listagem {
             map(res => res.json())
         ).subscribe(response => {
             this.data = response;
-
-            this.statusOfRestaurants = "databaseSelected";
-            this.statusOfMenus = null;
-            this.statusOfReviews = null;
-            this.statusOfOrders = null;
+            this.databaseSelector = "restaurants";
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
@@ -54,8 +45,7 @@ export class Listagem {
             this.column1 = "_id";
             this.column2 = "name";
             this.column3 = "category";
-            this.column4 = "rating";
-            this.databaseSelector = "restaurants";
+            this.column4 = "rating";      
         });
     }
 
@@ -64,11 +54,7 @@ export class Listagem {
             map(res => res.json())
         ).subscribe(response => {
             this.data = response;
-
-            this.statusOfRestaurants = null;
-            this.statusOfMenus = "databaseSelected";
-            this.statusOfReviews = null;
-            this.statusOfOrders = null;
+            this.databaseSelector = "menus";
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
@@ -77,8 +63,7 @@ export class Listagem {
             this.column1 = "_id";
             this.column2 = "name";
             this.column3 = "description";
-            this.column4 = "price";
-            this.databaseSelector = "menus";
+            this.column4 = "price";         
         });
     }
 
@@ -87,11 +72,7 @@ export class Listagem {
             map(res => res.json())
         ).subscribe(response => {
             this.data = response;
-
-            this.statusOfRestaurants = null;
-            this.statusOfMenus = null;
-            this.statusOfReviews = "databaseSelected";
-            this.statusOfOrders = null;
+            this.databaseSelector = "reviews";
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
@@ -100,8 +81,7 @@ export class Listagem {
             this.column1 = "_id";
             this.column2 = "name";
             this.column3 = "rating";
-            this.column4 = "comments";
-            this.databaseSelector = "reviews";
+            this.column4 = "comments"; 
         });
     }
 
@@ -110,11 +90,7 @@ export class Listagem {
             map(res => res.json())
         ).subscribe(response => {
             this.data = response;
-
-            this.statusOfRestaurants = null;
-            this.statusOfMenus = null;
-            this.statusOfReviews = null;
-            this.statusOfOrders = "databaseSelected";
+            this.databaseSelector = "orders";
 
             this.editMode = false;
             this.editModeStyle = "editModeDisabled";
@@ -123,8 +99,7 @@ export class Listagem {
             this.column1 = "_id";
             this.column2 = "customer";
             this.column3 = "order";
-            this.column4 = "price";
-            this.databaseSelector = "orders";
+            this.column4 = "price";  
         });
     }
 

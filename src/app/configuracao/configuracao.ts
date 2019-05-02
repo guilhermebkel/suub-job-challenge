@@ -20,16 +20,6 @@ export class Configuracao {
     modelCreate: any;
     modelEdit: any;
 
-    statusOfRestaurantsEdit: string;
-    statusOfMenusEdit: string;
-    statusOfReviewsEdit: string;
-    statusOfOrdersEdit: string;
-
-    statusOfRestaurantsCreate: string;
-    statusOfMenusCreate: string;
-    statusOfReviewsCreate: string;
-    statusOfOrdersCreate: string;
-
     id: string;
 
     constructor(private http: Http, private modal: ModalController, public navCtrl: NavController, private alertCtrl: AlertController) {
@@ -40,90 +30,42 @@ export class Configuracao {
     restaurantCreate() {
         this.modelExample = restaurantModelExample;
         this.modelCreate = restaurantModel;
-
-        this.statusOfRestaurantsCreate = "databaseSelected";
-        this.statusOfMenusCreate = null;
-        this.statusOfReviewsCreate = null;
-        this.statusOfOrdersCreate = null;
-
         this.databaseSelectorCreate = "restaurants";
     }
     menuCreate() {
         this.modelExample = menuModelExample;
         this.modelCreate = menuModel;
-
-        this.statusOfRestaurantsCreate = null;
-        this.statusOfMenusCreate = "databaseSelected";
-        this.statusOfReviewsCreate = null;
-        this.statusOfOrdersCreate = null;
-
         this.databaseSelectorCreate = "menus";
     }
     reviewCreate() {
         this.modelExample = reviewModelExample;
         this.modelCreate = reviewModel;
-
-        this.statusOfRestaurantsCreate = null;
-        this.statusOfMenusCreate = null;
-        this.statusOfReviewsCreate = "databaseSelected";
-        this.statusOfOrdersCreate = null;
-
         this.databaseSelectorCreate = "reviews";
     }
     orderCreate() {
         this.modelExample = orderModelExample;
         this.modelCreate = orderModel;
-
-        this.statusOfRestaurantsCreate = null;
-        this.statusOfMenusCreate = null;
-        this.statusOfReviewsCreate = null;
-        this.statusOfOrdersCreate = "databaseSelected";
-
         this.databaseSelectorCreate = "orders";
     }
 
     restaurantEdit() {
         this.modelEdit = restaurantModel;
         this.id = "";
-
-        this.statusOfRestaurantsEdit = "databaseSelected";
-        this.statusOfMenusEdit = null;
-        this.statusOfReviewsEdit = null;
-        this.statusOfOrdersEdit = null;
-
         this.databaseSelectorEdit = "restaurants";
     }
     menuEdit() {
         this.modelEdit = menuModel;
         this.id = "";
-
-        this.statusOfRestaurantsEdit = null;
-        this.statusOfMenusEdit = "databaseSelected";
-        this.statusOfReviewsEdit = null;
-        this.statusOfOrdersEdit = null;
-
         this.databaseSelectorEdit = "menus";
     }
     reviewEdit() {
         this.modelEdit = reviewModel;
         this.id = "";
-
-        this.statusOfRestaurantsEdit = null;
-        this.statusOfMenusEdit = null;
-        this.statusOfReviewsEdit = "databaseSelected";
-        this.statusOfOrdersEdit = null;
-
         this.databaseSelectorEdit = "reviews";
     }
     orderEdit() {
         this.modelEdit = orderModel;
         this.id = "";
-
-        this.statusOfRestaurantsEdit = null;
-        this.statusOfMenusEdit = null;
-        this.statusOfReviewsEdit = null;
-        this.statusOfOrdersEdit = "databaseSelected";
-
         this.databaseSelectorEdit = "orders";
     }
 

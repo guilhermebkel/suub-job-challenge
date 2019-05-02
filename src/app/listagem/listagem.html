@@ -19,16 +19,16 @@
     <div class="box">
       <div class="box-navbar">
         <div (click)="restaurantData()">
-          <h1 class="box-navbar-title" [ngClass]="statusOfRestaurants">Restaurants</h1>
+          <h1 class="box-navbar-title" [ngClass]="databaseSelector==='restaurants'?'databaseSelected':null">Restaurants</h1>
         </div>
         <div (click)="menuData()">
-          <h1 class="box-navbar-title" [ngClass]="statusOfMenus">Menus</h1>
+          <h1 class="box-navbar-title" [ngClass]="databaseSelector==='menus'?'databaseSelected':null">Menus</h1>
         </div>
         <div (click)="reviewData()">
-          <h1 class="box-navbar-title" [ngClass]="statusOfReviews">Reviews</h1>
+          <h1 class="box-navbar-title" [ngClass]="databaseSelector==='reviews'?'databaseSelected':null">Reviews</h1>
         </div>
         <div (click)="orderData()">
-          <h1 class="box-navbar-title" [ngClass]="statusOfOrders">Orders</h1>
+          <h1 class="box-navbar-title" [ngClass]="databaseSelector==='orders'?'databaseSelected':null">Orders</h1>
         </div>
       </div>
 
