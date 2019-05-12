@@ -2,23 +2,26 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { ModalController, NavController, AlertController } from '@ionic/angular';
-import { restaurantModelExample, restaurantModel } from '../../models/restaurantModel'
-import { menuModelExample, menuModel } from '../../models/menuModel'
-import { reviewModelExample, reviewModel } from '../../models/reviewModel'
-import { orderModelExample, orderModel } from '../../models/orderModel'
+import { restaurantIndex, restaurantSchema } from '../../models/restaurantModel'
+import { menuIndex, menuSchema } from '../../models/menuModel'
+import { reviewIndex, reviewSchema } from '../../models/reviewModel'
+import { orderIndex, orderSchema } from '../../models/orderModel'
 
 @Component({
     templateUrl: 'configuracao.html',
     styleUrls: ['./configuracao.scss', './configuracao-responsive.scss'],
 })
 export class Configuracao {
+    data: any;
 
     databaseSelectorCreate: string;
     databaseSelectorEdit: string;
 
-    modelExample: any;
-    modelCreate: any;
-    modelEdit: any;
+    modelCreateSchema: any;
+    modelCreateIndex: any;
+
+    modelEditSchema: any;
+    modelEditIndex: any;
 
     id: string;
 
@@ -28,43 +31,47 @@ export class Configuracao {
     }
 
     restaurantCreate() {
-        this.modelExample = restaurantModelExample;
-        this.modelCreate = restaurantModel;
         this.databaseSelectorCreate = "restaurants";
+        this.modelCreateIndex = restaurantIndex;
+        this.modelCreateSchema = restaurantSchema;
     }
     menuCreate() {
-        this.modelExample = menuModelExample;
-        this.modelCreate = menuModel;
         this.databaseSelectorCreate = "menus";
+        this.modelCreateIndex = menuIndex;
+        this.modelCreateSchema = menuSchema;
     }
     reviewCreate() {
-        this.modelExample = reviewModelExample;
-        this.modelCreate = reviewModel;
         this.databaseSelectorCreate = "reviews";
+        this.modelCreateIndex = reviewIndex;
+        this.modelCreateSchema = reviewSchema;
     }
     orderCreate() {
-        this.modelExample = orderModelExample;
-        this.modelCreate = orderModel;
         this.databaseSelectorCreate = "orders";
+        this.modelCreateIndex = orderIndex;
+        this.modelCreateSchema = orderSchema;
     }
 
     restaurantEdit() {
-        this.modelEdit = restaurantModel;
+        this.modelEditIndex = restaurantIndex;
+        this.modelEditSchema = restaurantSchema;
         this.id = "";
         this.databaseSelectorEdit = "restaurants";
     }
     menuEdit() {
-        this.modelEdit = menuModel;
+        this.modelEditIndex = menuIndex;
+        this.modelEditSchema = menuSchema;
         this.id = "";
         this.databaseSelectorEdit = "menus";
     }
     reviewEdit() {
-        this.modelEdit = reviewModel;
+        this.modelEditIndex = reviewIndex;
+        this.modelEditSchema = reviewSchema;
         this.id = "";
         this.databaseSelectorEdit = "reviews";
     }
     orderEdit() {
-        this.modelEdit = orderModel;
+        this.modelEditIndex = orderIndex;
+        this.modelEditSchema = orderSchema;
         this.id = "";
         this.databaseSelectorEdit = "orders";
     }
@@ -84,14 +91,8 @@ export class Configuracao {
     }
 
     create() {
-        try{
-            JSON.parse(this.modelCreate);
-        } catch(error) {
-            return this.alertResponse(error);
-        }
-
         let data = {
-            userInput: JSON.parse(this.modelCreate),
+            userInput: this.modelCreateSchema,
         }
 
         this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorCreate}/create`, data).pipe(
@@ -102,14 +103,8 @@ export class Configuracao {
     }
 
     edit() {
-        try{
-            JSON.parse(this.modelEdit);
-        } catch(error) {
-            return this.alertResponse(error);
-        }
-
         let data = {
-            userInput: JSON.parse(this.modelEdit),
+            userInput: this.modelEditSchema,
             id: this.id
         }
 

@@ -25,26 +25,31 @@
       <div class="databases">
         <div class="databases-navbar">
           <div (click)="restaurantCreate()">
-            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='restaurants'?'databaseSelected':null">Restaurants</h1>
+            <h1 class="databases-navbar-title"
+              [ngClass]="databaseSelectorCreate==='restaurants'?'databaseSelected':null">Restaurants</h1>
           </div>
           <div (click)="menuCreate()">
-            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='menus'?'databaseSelected':null">Menus</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='menus'?'databaseSelected':null">
+              Menus</h1>
           </div>
           <div (click)="reviewCreate()">
-            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='reviews'?'databaseSelected':null">Reviews</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='reviews'?'databaseSelected':null">
+              Reviews</h1>
           </div>
           <div (click)="orderCreate()">
-            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='orders'?'databaseSelected':null">Orders</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorCreate==='orders'?'databaseSelected':null">
+              Orders</h1>
           </div>
         </div>
         <div class="create-box">
-          <div class="create-box-userInput">
-            <textarea [(ngModel)]="modelCreate" type="text"></textarea>
-          </div>
-          <div class="create-box-model">
-            <h2>Example:</h2>
-            <h1>{{modelExample}}</h1>
-          </div>
+
+         <ion-list style="width: 100%">
+            <ion-item *ngFor="let index of modelCreateIndex">
+                <ion-label floating>{{index}}:</ion-label>
+                <ion-input [(ngModel)]="modelCreateSchema[index]" type="text" autocomplete="off"></ion-input>
+            </ion-item>
+          </ion-list>
+
         </div>
       </div>
     </div>
@@ -58,24 +63,36 @@
       <div class="databases">
         <div class="databases-navbar">
           <div (click)="restaurantEdit()">
-            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='restaurants'?'databaseSelected':null">Restaurants</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='restaurants'?'databaseSelected':null">
+              Restaurants</h1>
           </div>
           <div (click)="menuEdit()">
-            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='menus'?'databaseSelected':null">Menus</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='menus'?'databaseSelected':null">Menus
+            </h1>
           </div>
           <div (click)="reviewEdit()">
-            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='reviews'?'databaseSelected':null">Reviews</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='reviews'?'databaseSelected':null">
+              Reviews</h1>
           </div>
           <div (click)="orderEdit()">
-            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='orders'?'databaseSelected':null">Orders</h1>
+            <h1 class="databases-navbar-title" [ngClass]="databaseSelectorEdit==='orders'?'databaseSelected':null">
+              Orders</h1>
           </div>
         </div>
         <div class="edit-box">
           <ion-item class="edit-box-objectID">
             <ion-label floating>Object ID:</ion-label>
-            <ion-input [(ngModel)]="id" type="text" placeholder="Click here and type the ID of the object you want to edit..."></ion-input>
+            <ion-input [(ngModel)]="id" type="text"
+              placeholder="Click here and type the ID of the object you want to edit..."></ion-input>
           </ion-item>
-          <textarea class="edit-box-userInput" [(ngModel)]="modelEdit"></textarea>
+
+          <ion-list style="width: 100%">
+              <ion-item *ngFor="let index of modelEditIndex">
+                  <ion-label floating>{{index}}:</ion-label>
+                  <ion-input [(ngModel)]="modelEditSchema[index]" type="text" autocomplete="off"></ion-input>
+              </ion-item>
+          </ion-list>
+
         </div>
       </div>
     </div>
