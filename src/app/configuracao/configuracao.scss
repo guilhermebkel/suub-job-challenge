@@ -56,7 +56,7 @@
 // ------------------------------ Box Container Styles ---------------------------------- //
 .box{
     width: 50%; 
-    height: 450px; 
+    height: 480px;
     border-radius: 15px;
     -webkit-box-shadow: 0 10px 20px #c7c7c7;
 	-moz-box-shadow: 0 10px 20px #c7c7c7;
@@ -97,74 +97,28 @@
 // ------------------------------ Create Box Styles ---------------------------------- //
 .create-box{
     display: flex; 
-    height: 375px; 
+    height: auto; 
     border-radius: 25px; 
     width: auto;
 }
-.create-box-userInput{
-    display: flex; 
-    width: 50%; 
-    height: 100%; 
-}
-.create-box-userInput textarea{
-    margin: auto auto; 
-    height: 100%; 
-    width: 100%; 
-    resize: none; 
-    -moz-appearance: none; 
-    outline: 0px none transparent; 
-    border-width: 0px; 
-    padding-top: 10px;
-    padding-left: 15px; 
-    line-height: 25px
-}
-.create-box-model{
-    display: inline-block; 
-    width: 50%; 
-    height: 100%; 
-    background-color: rgb(235, 235, 235); 
-    overflow-y: scroll;
-}
-.create-box-model h1{
-    width: 100%; 
-    margin: auto auto; 
-    font-family: monospace; 
-    font-size: 14px; 
-    color: rgb(88, 88, 88); 
-    white-space: pre-line; 
-    line-height: 25px; 
-    user-select: all; 
-    padding: 15px;
-}
-.create-box-model h2{
-    color: black;
-    padding-left: 15px;
-    font-size: 18px;
+.create-box ion-list{
+    width: 100%;
 }
 
 // ------------------------------ Edit Box Styles ---------------------------------- //
 .edit-box{
     display: inline-block;
-    height: 375px; 
+    height: auto; 
     border-radius: 25px; 
     width: 100%;
 }
-.edit-box-objectID {
+.edit-box ion-list{
+    width: 100%;
+}
+.edit-box-id {
     height: 13%;
 }
-.edit-box-userInput {
-    margin: auto auto; 
-    height: 87%; 
-    width: 100%; 
-    resize: none; 
-    -moz-appearance: none; 
-    outline: 0px none transparent; 
-    border-width: 0px; 
-    padding-top: 10px;
-    padding-left: 15px; 
-    line-height: 25px
-}
-.edit-box-objectID-button {
+.edit-box-id-button {
     margin: auto auto; 
     height: 25px; 
     width: 25px; 
@@ -172,7 +126,7 @@
     cursor: pointer;
     opacity: 0.5;
 }
-.edit-box-objectID-button:hover{
+.edit-box-id-button:hover{
     opacity: 1;
     -webkit-transition: all 0.2s ease-in-out;
 }

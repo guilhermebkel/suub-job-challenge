@@ -2,7 +2,12 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+
 :root {
+
+  --loading-ios-background: transparent;
+  --loading-md-background: $loading-ios-background;
+  --loading-wp-background: $loading-ios-background;
 
   --ion-background-color: rgb(230, 230, 230);
   --ion-toolbar-background: white;

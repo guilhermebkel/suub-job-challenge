@@ -34,6 +34,8 @@ export class Configuracao {
         this.databaseSelectorCreate = "restaurants";
         this.modelCreateIndex = restaurantIndex;
         this.modelCreateSchema = restaurantSchema;
+        console.log(restaurantSchema);
+        console.log(this.modelCreateSchema);
     }
     menuCreate() {
         this.databaseSelectorCreate = "menus";
@@ -91,6 +93,8 @@ export class Configuracao {
     }
 
     create() {
+        this.loadingResponse("start");
+
         let data = {
             userInput: this.modelCreateSchema,
         }
@@ -98,11 +102,14 @@ export class Configuracao {
         this.http.post(`https://suub-challenge.herokuapp.com/${this.databaseSelectorCreate}/create`, data).pipe(
             map(res => res.json())
         ).subscribe(response => {
+            this.loadingResponse("end");
             this.alertResponse(response);
         });
     }
 
     edit() {
+        this.loadingResponse("start");
+
         let data = {
             userInput: this.modelEditSchema,
             id: this.id
@@ -112,30 +119,39 @@ export class Configuracao {
             map(res => res.json())
         ).subscribe(response => {
             if(response !== 'Updated'){
+                this.loadingResponse("end");
                 return this.alertResponse("Invalid ID");
             }
             this.alertResponse(response);
+            this.loadingResponse("end");
         });
     }
 
-    info() {
-        this.infoLoading("start");
+    search() {
+        this.loadingResponse("start");
 
         this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelectorEdit}/` + this.id).pipe(
             map(res => res.json())
         ).subscribe(response => {
+            if(response == null){
+                this.loadingResponse("end");
+                return this.alertResponse("Invalid ID");
+            }
             this.modelEditSchema = response;
-            this.infoLoading("end");
+            this.loadingResponse("end");
         });
     }
-    infoKeyPress(keyCode){
+    searchKeyPress(keyCode){
         if(keyCode == 13){
-            this.info();
+            this.search();
         }
     }
-    async infoLoading(state) {
+
+    async loadingResponse(state) {
         if(state == "start"){
-            const loading = await this.loadingController.create({});
+            const loading = await this.loadingController.create({
+                cssClass: 'custom-loading-class'
+            });
             await loading.present();
         }
         if(state == "end"){

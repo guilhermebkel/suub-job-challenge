@@ -42,7 +42,7 @@
 }
 
 // ------------------------------ Alert Information Styles ---------------------------------- //
-.alertInformation {
+.alertInformation{
     -webkit-user-select: text;
     -moz-user-select: text;
     -ms-user-select: text;
@@ -50,8 +50,16 @@
 }
 
 // ------------------------------ Page Styles ---------------------------------- //
-ion-content {
+ion-content{
     scroll-behavior: smooth;
+}
+
+// ------------------------------ Loading Styles ---------------------------------- //
+ion-loading.custom-loading-class {
+    .loading-wrapper {
+      background: transparent;
+      box-shadow: none;
+    }
 }
 
 // ------------------------------ Datatable Responsive Styles ---------------------------------- //

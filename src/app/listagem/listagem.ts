@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
-import { ModalController, NavController, AlertController } from '@ionic/angular';
+import { ModalController, NavController, AlertController, LoadingController } from '@ionic/angular';
 import { ModalExclusaoPage } from '../modal-exclusao/modal-exclusao'
 
 @Component({
@@ -27,7 +27,7 @@ export class Listagem {
     newItem2: string;
     newItem3: string;
 
-    constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController) {
+    constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController, public loadingController: LoadingController) {
         this.restaurantData();
     }
 
@@ -120,11 +120,14 @@ export class Listagem {
     }
 
     delete(id) {
+        this.loadingResponse("start");
+
         this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/delete/` + id).pipe(
             map(res => res.json())
         ).subscribe(response => {
             this.reloadPage();
             this.alertResponse(response);
+            this.loadingResponse("end");
         });
     }
 
@@ -140,6 +143,8 @@ export class Listagem {
                 return;
             }
 
+            this.loadingResponse("start");
+
             let data = {
                 userInput: JSON.parse(`{"${this.column2}": "${this.newItem1}", "${this.column3}": "${this.newItem2}", "${this.column4}": "${this.newItem3}"}`),
                 id: id
@@ -150,16 +155,32 @@ export class Listagem {
             ).subscribe(response => {
                 this.reloadPage();
                 this.alertResponse(response);
+                this.loadingResponse("end");
             });
         }
     }
 
     info(id) {
+        this.loadingResponse("start");
+
         this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/` + id).pipe(
             map(res => res.json())
         ).subscribe(response => {
             this.alertInformation(response);
+            this.loadingResponse("end");
         });
+    }
+
+    async loadingResponse(state) {
+        if(state == "start"){
+            const loading = await this.loadingController.create({
+                cssClass: 'custom-loading-class'
+            });
+            await loading.present();
+        }
+        if(state == "end"){
+            this.loadingController.dismiss();
+        }
     }
 
     async alertResponse(response) {
@@ -169,6 +190,7 @@ export class Listagem {
         });
         alert.present();
     }
+
     async alertInformation(response) {
         let alert = await this.alertCtrl.create({
             message: JSON.stringify(response),
@@ -177,6 +199,14 @@ export class Listagem {
         });
         alert.present();
     }
+
+    reloadPage(){
+        if (this.databaseSelector == "restaurants") this.restaurantData();
+        else if (this.databaseSelector == "menus") this.menuData();
+        else if (this.databaseSelector == "reviews") this.reviewData();
+        else this.orderData();
+    }
+
     getValueOne(value) {
         this.newItem1 = value;
     }
@@ -185,11 +215,5 @@ export class Listagem {
     }
     getValueThree(value) {
         this.newItem3 = value;
-    }
-    reloadPage(){
-        if (this.databaseSelector == "restaurants") this.restaurantData();
-        else if (this.databaseSelector == "menus") this.menuData();
-        else if (this.databaseSelector == "reviews") this.reviewData();
-        else this.orderData();
     }
 }

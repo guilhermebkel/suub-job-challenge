@@ -42,14 +42,12 @@
           </div>
         </div>
         <div class="create-box">
-
-         <ion-list style="width: 100%">
+         <ion-list>
             <ion-item *ngFor="let index of modelCreateIndex">
                 <ion-label floating>{{index}}:</ion-label>
-                <ion-input [(ngModel)]="modelCreateSchema[index]" type="text" autocomplete="off"></ion-input>
+                <ion-input [(ngModel)]="modelCreateSchema[index]" type="text" clearInput></ion-input>
             </ion-item>
           </ion-list>
-
         </div>
       </div>
     </div>
@@ -80,17 +78,17 @@
           </div>
         </div>
         <div class="edit-box">
-          <ion-item class="edit-box-objectID">
+          <ion-item class="edit-box-id">
             <ion-label floating>Object ID:</ion-label>
             <ion-input [(ngModel)]="id" type="text"
-              placeholder="Click here and type the ID of the object you want to edit..." (keypress)="infoKeyPress($event.keyCode)"></ion-input>
-              <img class="edit-box-objectID-button" src="../assets/icon/search.png" (click)="info()">
+              placeholder="Click here and type the ID of the object you want to edit..." (keypress)="searchKeyPress($event.keyCode)" clearInput></ion-input>
+              <img class="edit-box-id-button" src="../assets/icon/search.png" (click)="search()">
           </ion-item>
 
-          <ion-list style="width: 100%">
+          <ion-list>
               <ion-item *ngFor="let index of modelEditIndex">
                   <ion-label floating>{{index}}:</ion-label>
-                  <ion-input [(ngModel)]="modelEditSchema[index]" type="text" autocomplete="off"></ion-input>
+                  <ion-input [(ngModel)]="modelEditSchema[index]" type="text" clearInput></ion-input>
               </ion-item>
           </ion-list>
 
