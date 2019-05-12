@@ -149,11 +149,9 @@
     border-radius: 25px; 
     width: 100%;
 }
-
 .edit-box-objectID {
     height: 13%;
 }
-
 .edit-box-userInput {
     margin: auto auto; 
     height: 87%; 
@@ -165,4 +163,16 @@
     padding-top: 10px;
     padding-left: 15px; 
     line-height: 25px
+}
+.edit-box-objectID-button {
+    margin: auto auto; 
+    height: 25px; 
+    width: 25px; 
+    padding: 2px; 
+    cursor: pointer;
+    opacity: 0.5;
+}
+.edit-box-objectID-button:hover{
+    opacity: 1;
+    -webkit-transition: all 0.2s ease-in-out;
 }

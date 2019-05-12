@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
-import { ModalController, NavController, AlertController } from '@ionic/angular';
+import { ModalController, NavController, AlertController, LoadingController } from '@ionic/angular';
 import { restaurantIndex, restaurantSchema } from '../../models/restaurantModel'
 import { menuIndex, menuSchema } from '../../models/menuModel'
 import { reviewIndex, reviewSchema } from '../../models/reviewModel'
@@ -25,7 +25,7 @@ export class Configuracao {
 
     id: string;
 
-    constructor(private http: Http, private modal: ModalController, public navCtrl: NavController, private alertCtrl: AlertController) {
+    constructor(private http: Http, private modal: ModalController, public navCtrl: NavController, private alertCtrl: AlertController, public loadingController: LoadingController) {
         this.restaurantCreate();
         this.restaurantEdit();
     }
@@ -116,6 +116,31 @@ export class Configuracao {
             }
             this.alertResponse(response);
         });
+    }
+
+    info() {
+        this.infoLoading("start");
+
+        this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelectorEdit}/` + this.id).pipe(
+            map(res => res.json())
+        ).subscribe(response => {
+            this.modelEditSchema = response;
+            this.infoLoading("end");
+        });
+    }
+    infoKeyPress(keyCode){
+        if(keyCode == 13){
+            this.info();
+        }
+    }
+    async infoLoading(state) {
+        if(state == "start"){
+            const loading = await this.loadingController.create({});
+            await loading.present();
+        }
+        if(state == "end"){
+            this.loadingController.dismiss();
+        }
     }
 
     async alertResponse(response){

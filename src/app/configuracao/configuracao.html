@@ -83,7 +83,8 @@
           <ion-item class="edit-box-objectID">
             <ion-label floating>Object ID:</ion-label>
             <ion-input [(ngModel)]="id" type="text"
-              placeholder="Click here and type the ID of the object you want to edit..."></ion-input>
+              placeholder="Click here and type the ID of the object you want to edit..." (keypress)="infoKeyPress($event.keyCode)"></ion-input>
+              <img class="edit-box-objectID-button" src="../assets/icon/search.png" (click)="info()">
           </ion-item>
 
           <ion-list style="width: 100%">
