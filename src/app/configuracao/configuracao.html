@@ -42,10 +42,10 @@
           </div>
         </div>
         <div class="create-box">
-         <ion-list>
+         <ion-list class="text-field">
             <ion-item *ngFor="let index of modelCreateIndex">
                 <ion-label floating>{{index}}:</ion-label>
-                <ion-input [(ngModel)]="modelCreateSchema[index]" [type]="(index == 'price' || index == 'rating')?'number':'text'" clearInput></ion-input>
+                <ion-input [(ngModel)]="modelCreateSchema[index]" [type]="(index == 'price' || index == 'rating')?'number':'text'" placeholder="..." clearInput></ion-input>
             </ion-item>
           </ion-list>
         </div>
@@ -81,14 +81,14 @@
           <ion-item class="edit-box-id">
             <ion-label floating>Object ID:</ion-label>
             <ion-input [(ngModel)]="id" type="text"
-              placeholder="Click here and type the ID of the object you want to edit..." (keypress)="searchKeyPress($event.keyCode)" clearInput></ion-input>
+              placeholder="Type the ID of the object you want to edit..." (keypress)="searchKeyPress($event.keyCode)" clearInput></ion-input>
               <img class="edit-box-id-button" src="../assets/icon/search.png" (click)="search()">
           </ion-item>
 
-          <ion-list>
+          <ion-list class="text-field">
               <ion-item *ngFor="let index of modelEditIndex">
                   <ion-label floating>{{index}}:</ion-label>
-                  <ion-input [(ngModel)]="modelEditSchema[index]" [type]="(index == 'price' || index == 'rating')?'number':'text'" clearInput></ion-input>
+                  <ion-input [(ngModel)]="modelEditSchema[index]" [type]="(index == 'price' || index == 'rating')?'number':'text'" placeholder="..." clearInput></ion-input>
               </ion-item>
           </ion-list>
 
