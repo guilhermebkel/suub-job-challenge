@@ -139,6 +139,12 @@
     border-bottom-right-radius: 15px; 
     border-bottom-left-radius: 15px
 }
+.text-field {
+    --ion-background-color:#fff;
+}
 .text-field ion-item ion-input{
     color: #3f3f3f;
+}
+.text-field ion-item{
+    --ion-background-color:#fff;
 }
