@@ -25,6 +25,7 @@ export class Configuracao {
 
     id: string;
 
+
     constructor(private http: Http, private modal: ModalController, public navCtrl: NavController, private alertCtrl: AlertController, public loadingController: LoadingController) {
         this.restaurantCreate();
         this.restaurantEdit();
@@ -33,45 +34,45 @@ export class Configuracao {
     restaurantCreate() {
         this.databaseSelectorCreate = "restaurants";
         this.modelCreateIndex = restaurantIndex;
-        this.modelCreateSchema = restaurantSchema;
+        this.modelCreateSchema = JSON.parse(restaurantSchema);
     }
     menuCreate() {
         this.databaseSelectorCreate = "menus";
         this.modelCreateIndex = menuIndex;
-        this.modelCreateSchema = menuSchema;
+        this.modelCreateSchema = JSON.parse(menuSchema);
     }
     reviewCreate() {
         this.databaseSelectorCreate = "reviews";
         this.modelCreateIndex = reviewIndex;
-        this.modelCreateSchema = reviewSchema;
+        this.modelCreateSchema = JSON.parse(reviewSchema);
     }
     orderCreate() {
         this.databaseSelectorCreate = "orders";
         this.modelCreateIndex = orderIndex;
-        this.modelCreateSchema = orderSchema;
+        this.modelCreateSchema = JSON.parse(orderSchema);
     }
 
     restaurantEdit() {
         this.modelEditIndex = restaurantIndex;
-        this.modelEditSchema = restaurantSchema;
+        this.modelEditSchema = JSON.parse(restaurantSchema);
         this.id = "";
         this.databaseSelectorEdit = "restaurants";
     }
     menuEdit() {
         this.modelEditIndex = menuIndex;
-        this.modelEditSchema = menuSchema;
+        this.modelEditSchema = JSON.parse(menuSchema);
         this.id = "";
         this.databaseSelectorEdit = "menus";
     }
     reviewEdit() {
         this.modelEditIndex = reviewIndex;
-        this.modelEditSchema = reviewSchema;
+        this.modelEditSchema = JSON.parse(reviewSchema);
         this.id = "";
         this.databaseSelectorEdit = "reviews";
     }
     orderEdit() {
         this.modelEditIndex = orderIndex;
-        this.modelEditSchema = orderSchema;
+        this.modelEditSchema = JSON.parse(orderSchema);
         this.id = "";
         this.databaseSelectorEdit = "orders";
     }
