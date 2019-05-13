@@ -34,8 +34,6 @@ export class Configuracao {
         this.databaseSelectorCreate = "restaurants";
         this.modelCreateIndex = restaurantIndex;
         this.modelCreateSchema = restaurantSchema;
-        console.log(restaurantSchema);
-        console.log(this.modelCreateSchema);
     }
     menuCreate() {
         this.databaseSelectorCreate = "menus";
@@ -104,6 +102,9 @@ export class Configuracao {
         ).subscribe(response => {
             this.loadingResponse("end");
             this.alertResponse(response);
+        }, error => {
+            this.loadingResponse("end");
+            this.alertResponse(((JSON.parse(error._body)).message));
         });
     }
 
@@ -122,8 +123,8 @@ export class Configuracao {
                 this.loadingResponse("end");
                 return this.alertResponse("Invalid ID");
             }
-            this.alertResponse(response);
             this.loadingResponse("end");
+            this.alertResponse(response);  
         });
     }
 
@@ -137,8 +138,8 @@ export class Configuracao {
                 this.loadingResponse("end");
                 return this.alertResponse("Invalid ID");
             }
-            this.modelEditSchema = response;
             this.loadingResponse("end");
+            this.modelEditSchema = response;        
         });
     }
     searchKeyPress(keyCode){

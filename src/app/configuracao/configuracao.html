@@ -45,7 +45,7 @@
          <ion-list>
             <ion-item *ngFor="let index of modelCreateIndex">
                 <ion-label floating>{{index}}:</ion-label>
-                <ion-input [(ngModel)]="modelCreateSchema[index]" type="text" clearInput></ion-input>
+                <ion-input [(ngModel)]="modelCreateSchema[index]" [type]="(index == 'price' || index == 'rating')?'number':'text'" clearInput></ion-input>
             </ion-item>
           </ion-list>
         </div>
@@ -88,7 +88,7 @@
           <ion-list>
               <ion-item *ngFor="let index of modelEditIndex">
                   <ion-label floating>{{index}}:</ion-label>
-                  <ion-input [(ngModel)]="modelEditSchema[index]" type="text" clearInput></ion-input>
+                  <ion-input [(ngModel)]="modelEditSchema[index]" [type]="(index == 'price' || index == 'rating')?'number':'text'" clearInput></ion-input>
               </ion-item>
           </ion-list>
 

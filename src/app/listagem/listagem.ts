@@ -126,8 +126,8 @@ export class Listagem {
             map(res => res.json())
         ).subscribe(response => {
             this.reloadPage();
-            this.alertResponse(response);
             this.loadingResponse("end");
+            this.alertResponse(response);
         });
     }
 
@@ -154,8 +154,8 @@ export class Listagem {
                 map(res => res.json())
             ).subscribe(response => {
                 this.reloadPage();
-                this.alertResponse(response);
                 this.loadingResponse("end");
+                this.alertResponse(response);
             });
         }
     }
@@ -166,8 +166,8 @@ export class Listagem {
         this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelector}/` + id).pipe(
             map(res => res.json())
         ).subscribe(response => {
-            this.alertInformation(response);
             this.loadingResponse("end");
+            this.alertInformation(response);
         });
     }
 
