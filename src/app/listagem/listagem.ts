@@ -156,6 +156,9 @@ export class Listagem {
                 this.reloadPage();
                 this.loadingResponse("end");
                 this.alertResponse(response);
+            }, error => {
+                this.loadingResponse("end");
+                this.alertResponse(((JSON.parse(error._body)).message));
             });
         }
     }
