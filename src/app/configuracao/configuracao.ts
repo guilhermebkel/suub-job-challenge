@@ -25,7 +25,6 @@ export class Configuracao {
 
     id: string;
 
-
     constructor(private http: Http, private modal: ModalController, public navCtrl: NavController, private alertCtrl: AlertController, public loadingController: LoadingController) {
         this.restaurantCreate();
         this.restaurantEdit();
@@ -103,6 +102,7 @@ export class Configuracao {
         ).subscribe(response => {
             this.loadingResponse("end");
             this.alertResponse(response);
+            this.resetCreateTextfield();
         });
     }
 
@@ -122,7 +122,8 @@ export class Configuracao {
                 return this.alertResponse("Invalid ID");
             }
             this.loadingResponse("end");
-            this.alertResponse(response);  
+            this.alertResponse(response);
+            this.resetEditTextfield();
         });
     }
 
@@ -138,6 +139,9 @@ export class Configuracao {
             }
             this.loadingResponse("end");
             this.modelEditSchema = response;        
+        }, error => {
+            this.loadingResponse("end");
+            return this.alertResponse("Invalid ID");
         });
     }
     searchKeyPress(keyCode){

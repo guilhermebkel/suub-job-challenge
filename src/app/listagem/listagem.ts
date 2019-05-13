@@ -159,6 +159,7 @@ export class Listagem {
             }, error => {
                 this.loadingResponse("end");
                 this.alertResponse(((JSON.parse(error._body)).message));
+                this.reloadPage();
             });
         }
     }

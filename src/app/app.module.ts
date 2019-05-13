@@ -16,10 +16,12 @@ import { ModalExclusaoPageModule } from './modal-exclusao/modal-exclusao.module'
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [ModalExclusaoPageModule, NgxDatatableModule, HttpModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
+  imports: [IonicStorageModule.forRoot(), ModalExclusaoPageModule, NgxDatatableModule, HttpModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     StatusBar,
     SplashScreen,
