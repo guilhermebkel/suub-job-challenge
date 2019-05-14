@@ -51,4 +51,20 @@
         margin-bottom: 5px;
         box-shadow: 0 6px 4px -6px #ff7422;
     }
+    .box-navbar-title {
+        font-family: 'Roboto', sans-serif; 
+        font-size: 3vw; 
+        margin: auto auto; 
+        font-weight: bold;
+        padding: 5px;
+        cursor: pointer;
+    }
+    .column-edit-button{
+        margin: auto 0px auto 7px; 
+        height: 37px; 
+        width: 37px; 
+        padding: 10px; 
+        cursor: pointer;
+        opacity: 1;
+    }
 }
