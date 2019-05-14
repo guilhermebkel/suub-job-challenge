@@ -3,6 +3,10 @@ import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { ModalController, NavController, AlertController, LoadingController } from '@ionic/angular';
 import { ModalExclusaoPage } from '../modal-exclusao/modal-exclusao'
+import { restaurantIndex } from '../../models/restaurantModel'
+import { menuIndex } from '../../models/menuModel'
+import { reviewIndex } from '../../models/reviewModel'
+import { orderIndex } from '../../models/orderModel'
 
 @Component({
     selector: 'app-home',
@@ -19,13 +23,16 @@ export class Listagem {
     column2: string;
     column3: string;
     column4: string;
+    columnIndex: any;
 
     editMode: boolean;
     editModeStyle: string;
-    
+
     newItem1: string;
     newItem2: string;
     newItem3: string;
+
+    checkbox: any;
 
     constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController, public loadingController: LoadingController) {
         this.restaurantData();
@@ -42,10 +49,11 @@ export class Listagem {
             this.editModeStyle = "editModeDisabled";
             this.id = "";
 
+            this.columnIndex = restaurantIndex;
             this.column1 = "_id";
             this.column2 = "name";
             this.column3 = "category";
-            this.column4 = "rating";      
+            this.column4 = "rating";
         });
     }
 
@@ -60,10 +68,11 @@ export class Listagem {
             this.editModeStyle = "editModeDisabled";
             this.id = "";
 
+            this.columnIndex = menuIndex;
             this.column1 = "_id";
             this.column2 = "name";
             this.column3 = "description";
-            this.column4 = "price";         
+            this.column4 = "price";
         });
     }
 
@@ -78,10 +87,11 @@ export class Listagem {
             this.editModeStyle = "editModeDisabled";
             this.id = "";
 
+            this.columnIndex = reviewIndex;
             this.column1 = "_id";
             this.column2 = "name";
             this.column3 = "rating";
-            this.column4 = "comments"; 
+            this.column4 = "comments";
         });
     }
 
@@ -96,10 +106,11 @@ export class Listagem {
             this.editModeStyle = "editModeDisabled";
             this.id = "";
 
+            this.columnIndex = orderIndex;
             this.column1 = "_id";
             this.column2 = "customer";
             this.column3 = "order";
-            this.column4 = "price";  
+            this.column4 = "price";
         });
     }
 
@@ -135,11 +146,11 @@ export class Listagem {
         this.editMode = !this.editMode;
         this.id = id;
 
-        if(this.editMode == false) {
+        if (this.editMode == false) {
             this.editModeStyle = "editModeDisabled";
             this.id = "";
 
-            if(initialItem1 === this.newItem1 && initialItem2 === this.newItem2 && initialItem3 === this.newItem3){
+            if (initialItem1 === this.newItem1 && initialItem2 === this.newItem2 && initialItem3 === this.newItem3) {
                 return;
             }
 
@@ -176,13 +187,13 @@ export class Listagem {
     }
 
     async loadingResponse(state) {
-        if(state == "start"){
+        if (state == "start") {
             const loading = await this.loadingController.create({
                 cssClass: 'custom-loading-class'
             });
             await loading.present();
         }
-        if(state == "end"){
+        if (state == "end") {
             this.loadingController.dismiss();
         }
     }
@@ -204,7 +215,7 @@ export class Listagem {
         alert.present();
     }
 
-    reloadPage(){
+    reloadPage() {
         if (this.databaseSelector == "restaurants") this.restaurantData();
         else if (this.databaseSelector == "menus") this.menuData();
         else if (this.databaseSelector == "reviews") this.reviewData();
@@ -219,5 +230,35 @@ export class Listagem {
     }
     getValueThree(value) {
         this.newItem3 = value;
+    }
+
+    checkboxValue(){
+        const theNewInputs = [];
+        for (let i = 0; i < this.columnIndex.length; i++) {
+            theNewInputs.push({
+                type: 'checkbox',
+                label: this.columnIndex[i],
+                value: this.columnIndex[i],
+                checked: (this.column2 == this.columnIndex[i] || this.column3 == this.columnIndex[i] || this.column4 == this.columnIndex[i])? true : false
+            });
+        }
+        return theNewInputs;
+    }
+    async alertColumns() {
+        this.checkbox = this.checkboxValue();
+        let alert = await this.alertCtrl.create({
+            header: 'Columns (3 max.)',
+            inputs: this.checkbox,
+            buttons: 
+                [{
+                    text: 'OK',
+                    handler: checkbox => {
+                        this.column2 = checkbox[0];
+                        this.column3 = checkbox[1];
+                        this.column4 = checkbox[2];
+                    },
+                }],
+        });
+        alert.present();
     }
 }

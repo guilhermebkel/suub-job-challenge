@@ -42,10 +42,12 @@
           </div>
         </div>
         <div class="create-box">
-         <ion-list class="text-field">
+          <ion-list class="text-field">
             <ion-item *ngFor="let index of modelCreateIndex">
-                <ion-label floating>{{index}}:</ion-label>
-                <ion-input [(ngModel)]="modelCreateSchema[index]" [type]="(index == 'price' || index == 'rating')?'number':'text'" placeholder="..." clearInput></ion-input>
+              <ion-label floating>{{index}}:</ion-label>
+              <ion-input [(ngModel)]="modelCreateSchema[index]"
+                [type]="(index == 'price' || index == 'rating')?'number':'text'" placeholder="..." clearInput>
+              </ion-input>
             </ion-item>
           </ion-list>
         </div>
@@ -80,16 +82,18 @@
         <div class="edit-box">
           <ion-item class="edit-box-id">
             <ion-label floating>Object ID:</ion-label>
-            <ion-input [(ngModel)]="id" type="text"
-              placeholder="Type the ID of the object you want to edit..." (keypress)="searchKeyPress($event.keyCode)" clearInput></ion-input>
-              <img class="edit-box-id-button" src="../assets/icon/search.png" (click)="search()">
+            <ion-input [(ngModel)]="id" type="text" placeholder="Type the ID of the object you want to edit..."
+              (keypress)="searchKeyPress($event.keyCode)" clearInput></ion-input>
+            <img class="edit-box-id-button" src="../assets/icon/search.png" (click)="search()">
           </ion-item>
 
           <ion-list class="text-field">
-              <ion-item *ngFor="let index of modelEditIndex">
-                  <ion-label floating>{{index}}:</ion-label>
-                  <ion-input [(ngModel)]="modelEditSchema[index]" [type]="(index == 'price' || index == 'rating')?'number':'text'" placeholder="..." clearInput></ion-input>
-              </ion-item>
+            <ion-item *ngFor="let index of modelEditIndex">
+              <ion-label floating>{{index}}:</ion-label>
+              <ion-input [(ngModel)]="modelEditSchema[index]"
+                [type]="(index == 'price' || index == 'rating')?'number':'text'" placeholder="..." clearInput>
+              </ion-input>
+            </ion-item>
           </ion-list>
 
         </div>

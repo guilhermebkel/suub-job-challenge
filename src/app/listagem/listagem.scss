@@ -137,6 +137,33 @@
     -webkit-transition: all 0.2s ease-in-out;
     box-shadow: 0 6px 4px -6px black;
 }
+.config-button{
+    background-color: #3616e9;
+    border-radius: 7px;
+    padding: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+    box-shadow: 0 6px 4px -6px #3616e9;
+}
+.config-button:hover{
+    background-color: black;
+    -webkit-transition: all 0.2s ease-in-out;
+    box-shadow: 0 6px 4px -6px black;
+}
+.column-edit-button{
+    margin: auto auto; 
+    height: 40px; 
+    width: 40px; 
+    padding: 10px; 
+    cursor: pointer;
+    opacity: 1;
+}
+.column-edit-button:hover{
+    opacity: 0.7;
+    -webkit-transition: all 0.2s ease-in-out;
+}
 
 // ------------------------- Edit Mode Style ------------------------- //
 .editModeEnabled {
