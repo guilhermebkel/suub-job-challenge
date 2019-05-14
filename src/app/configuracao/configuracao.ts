@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { ModalController, NavController, AlertController, LoadingController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router'
 import { restaurantIndex, restaurantSchema } from '../../models/restaurantModel'
 import { menuIndex, menuSchema } from '../../models/menuModel'
 import { reviewIndex, reviewSchema } from '../../models/reviewModel'
@@ -25,9 +26,29 @@ export class Configuracao {
 
     id: string;
 
-    constructor(private http: Http, private modal: ModalController, public navCtrl: NavController, private alertCtrl: AlertController, public loadingController: LoadingController) {
-        this.restaurantCreate();
-        this.restaurantEdit();
+    constructor(private http: Http, private modal: ModalController, public navCtrl: NavController, private alertCtrl: AlertController, public loadingController: LoadingController, public activeRoute: ActivatedRoute) {}
+
+    // Triggers a GET Data on the selected database
+    // when the 'Config' Page loads.
+    ngOnInit(){
+        let databaseSelector = this.activeRoute.snapshot.paramMap.get('databaseSelector');
+        
+        if(databaseSelector == "restaurants"){
+            this.restaurantCreate(); 
+            this.restaurantEdit();
+        }
+        else if(databaseSelector == "menus"){
+            this.menuCreate(); 
+            this.menuEdit();
+        }
+        else if(databaseSelector == "reviews"){
+            this.reviewCreate(); 
+            this.reviewEdit();
+        }
+        else{
+            this.orderCreate();
+            this.orderEdit();
+        }
     }
 
     // All of these '...Create()' functions are used to

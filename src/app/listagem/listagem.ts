@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { ModalController, NavController, AlertController, LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router'
 import { ModalExclusaoPage } from '../modal-exclusao/modal-exclusao'
 import { restaurantIndex } from '../../models/restaurantModel'
 import { menuIndex } from '../../models/menuModel'
@@ -34,8 +35,19 @@ export class Listagem {
 
     checkbox: any;
 
-    constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController, public loadingController: LoadingController) {
+    constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController, public loadingController: LoadingController, public router: Router) {}
+
+    // Triggers a GET Data on Database
+    // when the 'Listagem' Page loads.
+    ngOnInit(){
         this.restaurantData();
+    }
+
+    // It is used to go to 'Config' Page
+    // passing information about which
+    // database is selected.
+    goToConfigPage(){
+        this.router.navigateByUrl(`configuracao/${this.databaseSelector}`);
     }
 
     // All the function '..Data()' below are used 
