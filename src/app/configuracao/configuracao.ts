@@ -58,7 +58,7 @@ export class Configuracao {
         // will be displayed for him.
         if(id != "" && id != undefined && id != "undefined"){
             this.id = id;
-            this.search();
+            this.search(null);
         }
     }
 
@@ -175,8 +175,8 @@ export class Configuracao {
     // This function is used to search for existing data
     // on database, in order to help user when he is
     // edditing some element.
-    search() {
-        this.loadingResponse("start");
+    search(loadingState) {
+        this.loadingResponse(loadingState);
 
         this.http.get(`https://suub-challenge.herokuapp.com/${this.databaseSelectorEdit}/` + this.id).pipe(
             map(res => res.json())
@@ -197,7 +197,7 @@ export class Configuracao {
     // pressing the 'Enter' key.
     searchKeyPress(keyCode){
         if(keyCode == 13){
-            this.search();
+            this.search("start");
         }
     }
 

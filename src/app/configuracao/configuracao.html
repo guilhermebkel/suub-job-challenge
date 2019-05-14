@@ -84,7 +84,7 @@
             <ion-label floating>Object ID:</ion-label>
             <ion-input [(ngModel)]="id" type="text" placeholder="..."
               (keypress)="searchKeyPress($event.keyCode)" clearInput></ion-input>
-            <img class="edit-box-id-button" src="../assets/icon/search.png" (click)="search()">
+            <img class="edit-box-id-button" src="../assets/icon/search.png" (click)="search('start')">
           </ion-item>
 
           <ion-list class="text-field">
