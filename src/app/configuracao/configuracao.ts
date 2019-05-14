@@ -56,7 +56,7 @@ export class Configuracao {
         // If user activated the 'Edit' method on the 'Listagem' page
         // then when he gets to 'Config' Page, the selected element to edit
         // will be displayed for him.
-        if(id != ""){
+        if(id != "" && id != undefined && id != "undefined"){
             this.id = id;
             this.search();
         }

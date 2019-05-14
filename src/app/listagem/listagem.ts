@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { ModalController, NavController, AlertController, LoadingController } from '@ionic/angular';
-import { Router } from '@angular/router'
+import { Router, NavigationEnd } from '@angular/router'
 import { ModalExclusaoPage } from '../modal-exclusao/modal-exclusao'
 import { restaurantIndex } from '../../models/restaurantModel'
 import { menuIndex } from '../../models/menuModel'
@@ -35,7 +35,28 @@ export class Listagem {
 
     checkbox: any;
 
-    constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController, public loadingController: LoadingController, public router: Router) {}
+    constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController, public loadingController: LoadingController, public router: Router) {
+        this.restaurantData(); 
+        
+        // Everytime the user goes back to 'Listagem' Page
+        // it updates the datatable values.
+        this.router.events.subscribe((ev) => {
+            if (ev instanceof NavigationEnd) { 
+                if(this.databaseSelector == "restaurants"){
+                    this.restaurantData(); 
+                }
+                else if(this.databaseSelector == "menus"){
+                    this.menuData(); 
+                }
+                else if(this.databaseSelector == "reviews"){
+                    this.reviewData(); 
+                }
+                else{
+                    this.orderData();
+                }  
+            }
+        });
+    }
 
     // Triggers a GET Data on Database
     // when the 'Listagem' Page loads.
