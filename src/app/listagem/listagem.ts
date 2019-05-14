@@ -38,6 +38,8 @@ export class Listagem {
         this.restaurantData();
     }
 
+    // All the function '..Data()' below are used 
+    // to get data from a specific schema on Database.
     restaurantData() {
         this.http.get('https://suub-challenge.herokuapp.com/restaurants').pipe(
             map(res => res.json())
@@ -56,7 +58,6 @@ export class Listagem {
             this.column4 = "rating";
         });
     }
-
     menuData() {
         this.http.get('https://suub-challenge.herokuapp.com/menus').pipe(
             map(res => res.json())
@@ -75,7 +76,6 @@ export class Listagem {
             this.column4 = "price";
         });
     }
-
     reviewData() {
         this.http.get('https://suub-challenge.herokuapp.com/reviews').pipe(
             map(res => res.json())
@@ -94,7 +94,6 @@ export class Listagem {
             this.column4 = "comments";
         });
     }
-
     orderData() {
         this.http.get('https://suub-challenge.herokuapp.com/orders').pipe(
             map(res => res.json())
@@ -114,6 +113,8 @@ export class Listagem {
         });
     }
 
+    // That's a modal which asks the user if 
+    // he really wants to delete some data.
     async openModalExclusao(id) {
         const modal = await this.modalController.create({
             component: ModalExclusaoPage,
@@ -130,6 +131,8 @@ export class Listagem {
         return await modal.present();
     }
 
+    // This function is used to delete 
+    // data from database by ID.
     delete(id) {
         this.loadingResponse("start");
 
@@ -142,6 +145,8 @@ export class Listagem {
         });
     }
 
+    // This function is used to edit 
+    // data on database by ID.
     edit(id, initialItem1, initialItem2, initialItem3) {
         this.editMode = !this.editMode;
         this.id = id;
@@ -175,6 +180,8 @@ export class Listagem {
         }
     }
 
+    // This function gets all information about on 
+    // database about the element the user chooses.
     info(id) {
         this.loadingResponse("start");
 
@@ -186,6 +193,9 @@ export class Listagem {
         });
     }
 
+    // That's a loading controller that triggers everytime 
+    // the user makes some CRUD action, in order to tell 
+    // him the command is running.
     async loadingResponse(state) {
         if (state == "start") {
             const loading = await this.loadingController.create({
@@ -198,6 +208,8 @@ export class Listagem {
         }
     }
 
+    // That's an alert that triggers a response to user,
+    // telling him if the action was sucessfully done or not.
     async alertResponse(response) {
         let alert = await this.alertCtrl.create({
             message: response,
@@ -206,6 +218,8 @@ export class Listagem {
         alert.present();
     }
 
+    // This alert retrieves all the data information for user
+    // when he triggers the info(id) function.
     async alertInformation(response) {
         let alert = await this.alertCtrl.create({
             message: JSON.stringify(response),
@@ -215,6 +229,8 @@ export class Listagem {
         alert.present();
     }
 
+    // It is used to reload the page with new data
+    // from database.
     reloadPage() {
         if (this.databaseSelector == "restaurants") this.restaurantData();
         else if (this.databaseSelector == "menus") this.menuData();
@@ -222,6 +238,9 @@ export class Listagem {
         else this.orderData();
     }
 
+    // All of theses 'getValue' functions are used to get
+    // the new values user types when triggering
+    // the edit() function.
     getValueOne(value) {
         this.newItem1 = value;
     }
@@ -232,6 +251,10 @@ export class Listagem {
         this.newItem3 = value;
     }
 
+    // That function is used to automatically add
+    // the column names on the 'Column Edit' method,
+    // in order to display all the possible columns
+    // the user can add on datatable.
     checkboxValue(){
         const theNewInputs = [];
         for (let i = 0; i < this.columnIndex.length; i++) {
@@ -244,6 +267,9 @@ export class Listagem {
         }
         return theNewInputs;
     }
+
+    // This function is used to display the columns options
+    // of 'Column Edit' method to user.
     async alertColumns() {
         this.checkbox = this.checkboxValue();
         let alert = await this.alertCtrl.create({

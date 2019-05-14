@@ -30,6 +30,9 @@ export class Configuracao {
         this.restaurantEdit();
     }
 
+    // All of these '...Create()' functions are used to
+    // update the 'Create' method for every schema
+    // the user wants to create a new element.
     restaurantCreate() {
         this.databaseSelectorCreate = "restaurants";
         this.modelCreateIndex = restaurantIndex;
@@ -57,6 +60,10 @@ export class Configuracao {
         this.id = "";
         this.databaseSelectorEdit = "restaurants";
     }
+
+    // All of these '...Edit()' functions are used to
+    // update the 'Edit' method for every schema
+    // the user wants to edit an element. 
     menuEdit() {
         this.modelEditIndex = menuIndex;
         this.modelEditSchema = JSON.parse(menuSchema);
@@ -76,6 +83,7 @@ export class Configuracao {
         this.databaseSelectorEdit = "orders";
     }
 
+    // It is used to reset the textfield of 'Create' method.
     resetCreateTextfield() {
         if (this.databaseSelectorCreate == "restaurants") this.restaurantCreate();
         else if (this.databaseSelectorCreate == "menus") this.menuCreate();
@@ -83,6 +91,7 @@ export class Configuracao {
         else this.orderCreate();
     }
 
+    // It is used to reset the textfield of 'Edit' method.
     resetEditTextfield() {
         if (this.databaseSelectorEdit == "restaurants") this.restaurantEdit();
         else if (this.databaseSelectorEdit == "menus") this.menuEdit();
@@ -90,6 +99,8 @@ export class Configuracao {
         else this.orderEdit();
     }
 
+    // This function is used to create a new element
+    // on the selected database.
     create() {
         this.loadingResponse("start");
 
@@ -106,6 +117,8 @@ export class Configuracao {
         });
     }
 
+    // This function is used to edit some element
+    // on the selected database, by ID.
     edit() {
         this.loadingResponse("start");
 
@@ -127,6 +140,9 @@ export class Configuracao {
         });
     }
 
+    // This function is used to search for existing data
+    // on database, in order to help user when he is
+    // edditing some element.
     search() {
         this.loadingResponse("start");
 
@@ -144,12 +160,17 @@ export class Configuracao {
             return this.alertResponse("Invalid ID");
         });
     }
+
+    // It is used to trigger the search() function by
+    // pressing the 'Enter' key.
     searchKeyPress(keyCode){
         if(keyCode == 13){
             this.search();
         }
     }
 
+    // It is a loading controller, used in order to
+    // show the CRUD operation is happening.
     async loadingResponse(state) {
         if(state == "start"){
             const loading = await this.loadingController.create({
@@ -162,6 +183,8 @@ export class Configuracao {
         }
     }
 
+    // It is an alert used to give a response
+    // for every CRUD action the user makes.
     async alertResponse(response){
         let alert = await this.alertCtrl.create({
             message: response,
