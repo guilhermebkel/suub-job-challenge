@@ -44,10 +44,10 @@ export class Listagem {
     }
 
     // It is used to go to 'Config' Page
-    // passing information about which
-    // database is selected.
+    // passing information about the
+    // selected database.
     goToConfigPage(){
-        this.router.navigateByUrl(`configuracao/${this.databaseSelector}`);
+        this.router.navigate(["configuracao", `${this.databaseSelector}`, `${this.id}`]);
     }
 
     // All the function '..Data()' below are used 

@@ -32,7 +32,10 @@ export class Configuracao {
     // when the 'Config' Page loads.
     ngOnInit(){
         let databaseSelector = this.activeRoute.snapshot.paramMap.get('databaseSelector');
+        let id = this.activeRoute.snapshot.paramMap.get('id');
         
+        // Prepares the 'Config' Page based on the
+        // database user has chosen on 'Listagem' Page.
         if(databaseSelector == "restaurants"){
             this.restaurantCreate(); 
             this.restaurantEdit();
@@ -48,6 +51,14 @@ export class Configuracao {
         else{
             this.orderCreate();
             this.orderEdit();
+        }
+
+        // If user activated the 'Edit' method on the 'Listagem' page
+        // then when he gets to 'Config' Page, the selected element to edit
+        // will be displayed for him.
+        if(id != ""){
+            this.id = id;
+            this.search();
         }
     }
 
