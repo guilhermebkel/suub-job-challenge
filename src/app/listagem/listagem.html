@@ -18,7 +18,6 @@
   <div class="ion-padding">
     <div class="box">
       <div class="box-navbar">
-        <img class="column-edit-button" src="../assets/icon/config.png" (click)="alertColumns()">
         <div (click)="restaurantData()">
           <h1 class="box-navbar-title" [ngClass]="databaseSelector==='restaurants'?'databaseSelected':null">Restaurants</h1>
         </div>
@@ -31,6 +30,7 @@
         <div (click)="orderData()">
           <h1 class="box-navbar-title" [ngClass]="databaseSelector==='orders'?'databaseSelected':null">Orders</h1>
         </div>
+        <img class="column-edit-button" src="../assets/icon/config.png" (click)="alertColumns()">
       </div>
 
       <ngx-datatable id="datatable" class="material" [rows]="data" [columnMode]="'force'"
