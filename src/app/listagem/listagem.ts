@@ -36,8 +36,6 @@ export class Listagem {
     checkbox: any;
 
     constructor(private http: Http, private modalCtrl: ModalController, public navCtrl: NavController, public modalController: ModalController, private alertCtrl: AlertController, public loadingController: LoadingController, public router: Router) {
-        this.restaurantData(); 
-        
         // Everytime the user goes back to 'Listagem' Page
         // it updates the datatable values.
         this.router.events.subscribe((ev) => {
@@ -51,7 +49,7 @@ export class Listagem {
                 else if(this.databaseSelector == "reviews"){
                     this.reviewData(); 
                 }
-                else{
+                else if(this.databaseSelector == "orders"){
                     this.orderData();
                 }  
             }

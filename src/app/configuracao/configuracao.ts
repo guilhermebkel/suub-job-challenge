@@ -86,16 +86,15 @@ export class Configuracao {
         this.modelCreateSchema = JSON.parse(orderSchema);
     }
 
+    // All of these '...Edit()' functions are used to
+    // update the 'Edit' method for every schema
+    // the user wants to edit an element. 
     restaurantEdit() {
         this.modelEditIndex = restaurantIndex;
         this.modelEditSchema = JSON.parse(restaurantSchema);
         this.id = "";
         this.databaseSelectorEdit = "restaurants";
     }
-
-    // All of these '...Edit()' functions are used to
-    // update the 'Edit' method for every schema
-    // the user wants to edit an element. 
     menuEdit() {
         this.modelEditIndex = menuIndex;
         this.modelEditSchema = JSON.parse(menuSchema);
